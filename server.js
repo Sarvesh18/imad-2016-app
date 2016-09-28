@@ -14,7 +14,11 @@ app.get('/1', function (req, res) {
 });
 
 app.get('/2', function (req, res) {
-  res.sendFile('2');
+  res.sendFile('hey2');
+});
+
+app.get('/3', function (req, res) {
+  res.sendFile('hey3');
 });
 
 app.get('/ui/style.css', function (req, res) {
