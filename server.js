@@ -16,7 +16,7 @@ res.send(createTemplate(articles[articleName]));
 
 
 var articles = {
-'article-one': {
+    s1: {
 title: '1 | Sarvesh',
 heading: '1',
 date: 'Sep 5,2016',
@@ -34,7 +34,7 @@ content: `  <B><MARQUEE> 1 </MARQUEE><B>
                 This is my page.This is my page.This is my page.This is my page.This is my page.This is my page.This is my page.This is my page.This is my page.This is my page.This is my page.This is my page.This is my page.This is my page.This is my page.This is my page.This is my page.This is my page.
             </p>`
 },
-'article-two': {
+s2: {
 title: '2 | Sarvesh',
 heading: '2',
 date: 'Sep 10,2016',
@@ -52,7 +52,7 @@ content: `  <B><MARQUEE> 2 </MARQUEE><B>
                 This is my page.This is my page.This is my page.This is my page.This is my page.This is my page.This is my page.This is my page.This is my page.This is my page.This is my page.This is my page.This is my page.This is my page.This is my page.This is my page.This is my page.This is my page.
             </p>`
 },
-'article-three': {
+3 : {
 title: '3 | Sarvesh',
 heading: '3',
 date: 'Sep 15,2016',
