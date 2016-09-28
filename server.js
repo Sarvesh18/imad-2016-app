@@ -16,7 +16,7 @@ res.send(createTemplate(articles[articleName]));
 
 
 var articles = {
-    s1: {
+'article-one': {
 title: '1 | Sarvesh',
 heading: '1',
 date: 'Sep 5,2016',
