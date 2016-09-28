@@ -5,7 +5,7 @@ var path = require('path');
 var app = express();
 app.use(morgan('combined'));
 
-var article1 = {
+var articleone = {
 title: '1 | Sarvesh',
 heading: '1',
 date: 'Sep 05,2016',
@@ -27,8 +27,9 @@ function createTemplate(data) {
 var title=data.title;
 var date=data.date;
 var heading=data.heading;
-var content=date.content;
-var htmlTemplate=`<html>
+var content=data.content;
+var htmlTemplate=`
+<html>
     <head>
         <title>${title}</title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -42,7 +43,7 @@ var htmlTemplate=`<html>
         <hr/>
         <h3>${heading}</h3>
         <div>
-            ${date}
+        ${date}
         </div>
         <div>
         ${content}
@@ -55,7 +56,7 @@ return htmlTemplate;
 
 app.get('/1', function (req, res) {
   
-res.send(createTemplate(article1));
+res.send(createTemplate(articleone));
 
 });
 
