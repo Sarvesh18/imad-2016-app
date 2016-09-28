@@ -62,7 +62,7 @@ res.send(createTemplate(articleone));
 
 app.get('/2', function (req, res) {
   
-res.send(createTemplate(article1));
+res.send(createTemplate(articleone));
 
 });
 
@@ -73,7 +73,7 @@ app.get('/', function (req, res) {
 
 
 app.get('/3', function (req, res) {
-  res.send('hey3');
+ res.sendFile(path.join(__dirname, 'ui', '1.html'));
 });
 
 app.get('/ui/style.css', function (req, res) {
