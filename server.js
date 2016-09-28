@@ -5,11 +5,59 @@ var path = require('path');
 var app = express();
 app.use(morgan('combined'));
 
-var article = {
+app.get('/:articleName', function (req, res) {
+ 
+//Express Framework after : take in var  
+//articles[articleName]=={} content object for article one
+var articleName=req.params.articleName;       
+res.send(createTemplate(articles[articleName]));
+
+});
+
+
+var articles = {
+'article-one': {
 title: '1 | Sarvesh',
 heading: '1',
-date: 'Sep 05,2016',
-content: `  <p>
+date: 'Sep 5,2016',
+content: `  <B><MARQUEE> 1 </MARQUEE><B>
+            <p>
+                This is my page.This is my page.This is my page.This is my page.This is my page.This is my page.This is my page.This is my page.This is my page.This is my page.This is my page.This is my page.This is my page.This is my page.This is my page.This is my page.This is my page.This is my page.
+            </p>
+            <p>
+                This is my page.This is my page.This is my page.This is my page.This is my page.This is my page.This is my page.This is my page.This is my page.This is my page.This is my page.This is my page.This is my page.This is my page.This is my page.This is my page.This is my page.This is my page.
+            </p>
+                        <p>
+                This is my page.This is my page.This is my page.This is my page.This is my page.This is my page.This is my page.This is my page.This is my page.This is my page.This is my page.This is my page.This is my page.This is my page.This is my page.This is my page.This is my page.This is my page.
+            </p>
+            <p>
+                This is my page.This is my page.This is my page.This is my page.This is my page.This is my page.This is my page.This is my page.This is my page.This is my page.This is my page.This is my page.This is my page.This is my page.This is my page.This is my page.This is my page.This is my page.
+            </p>`
+},
+'article-two': {
+title: '2 | Sarvesh',
+heading: '2',
+date: 'Sep 10,2016',
+content: `  <B><MARQUEE> 2 </MARQUEE><B>
+            <p>
+                This is my page.This is my page.This is my page.This is my page.This is my page.This is my page.This is my page.This is my page.This is my page.This is my page.This is my page.This is my page.This is my page.This is my page.This is my page.This is my page.This is my page.This is my page.
+            </p>
+            <p>
+                This is my page.This is my page.This is my page.This is my page.This is my page.This is my page.This is my page.This is my page.This is my page.This is my page.This is my page.This is my page.This is my page.This is my page.This is my page.This is my page.This is my page.This is my page.
+            </p>
+                        <p>
+                This is my page.This is my page.This is my page.This is my page.This is my page.This is my page.This is my page.This is my page.This is my page.This is my page.This is my page.This is my page.This is my page.This is my page.This is my page.This is my page.This is my page.This is my page.
+            </p>
+            <p>
+                This is my page.This is my page.This is my page.This is my page.This is my page.This is my page.This is my page.This is my page.This is my page.This is my page.This is my page.This is my page.This is my page.This is my page.This is my page.This is my page.This is my page.This is my page.
+            </p>`
+},
+'article-three': {
+title: '3 | Sarvesh',
+heading: '3',
+date: 'Sep 15,2016',
+content: `  <B><MARQUEE> 3 </MARQUEE><B>
+            <p>
                 This is my page.This is my page.This is my page.This is my page.This is my page.This is my page.This is my page.This is my page.This is my page.This is my page.This is my page.This is my page.This is my page.This is my page.This is my page.This is my page.This is my page.This is my page.
             </p>
             <p>
@@ -22,6 +70,7 @@ content: `  <p>
                 This is my page.This is my page.This is my page.This is my page.This is my page.This is my page.This is my page.This is my page.This is my page.This is my page.This is my page.This is my page.This is my page.This is my page.This is my page.This is my page.This is my page.This is my page.
             </p>`
 }
+};
  
 function createTemplate(data) {
 var title=data.title;
@@ -54,16 +103,9 @@ var htmlTemplate=`
 return htmlTemplate;
 }
 
-app.get('/3', function (req, res) {
-  res.send(createTemplate(article));
-});
-
-app.get('/2', function (req, res) {
-  res.send(createTemplate(article));
-});
-
-app.get('/1', function (req, res) {
-  res.sendFile(path.join(__dirname, 'ui', '1.html'));
+app.get('/:articleName', function (req, res) {
+var articleName=req.params.articleName;       
+res.send(createTemplate(articles[articleName]));
 });
 
 app.get('/', function (req, res) {
