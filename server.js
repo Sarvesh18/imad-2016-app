@@ -34,7 +34,7 @@ content: `  <B><MARQUEE> 1 </MARQUEE><B>
                 This is my page.This is my page.This is my page.This is my page.This is my page.This is my page.This is my page.This is my page.This is my page.This is my page.This is my page.This is my page.This is my page.This is my page.This is my page.This is my page.This is my page.This is my page.
             </p>`
 },
-s2: {
+c2: {
 title: '2 | Sarvesh',
 heading: '2',
 date: 'Sep 10,2016',
