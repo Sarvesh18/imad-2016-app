@@ -5,17 +5,71 @@ var path = require('path');
 var app = express();
 app.use(morgan('combined'));
 
+var article1 = {
+title: '1 | Sarvesh',
+heading: '1',
+date: 'Sep 05,2016',
+content: `  <p>
+                This is my page.This is my page.This is my page.This is my page.This is my page.This is my page.This is my page.This is my page.This is my page.This is my page.This is my page.This is my page.This is my page.This is my page.This is my page.This is my page.This is my page.This is my page.
+            </p>
+            <p>
+                This is my page.This is my page.This is my page.This is my page.This is my page.This is my page.This is my page.This is my page.This is my page.This is my page.This is my page.This is my page.This is my page.This is my page.This is my page.This is my page.This is my page.This is my page.
+            </p>
+                        <p>
+                This is my page.This is my page.This is my page.This is my page.This is my page.This is my page.This is my page.This is my page.This is my page.This is my page.This is my page.This is my page.This is my page.This is my page.This is my page.This is my page.This is my page.This is my page.
+            </p>
+            <p>
+                This is my page.This is my page.This is my page.This is my page.This is my page.This is my page.This is my page.This is my page.This is my page.This is my page.This is my page.This is my page.This is my page.This is my page.This is my page.This is my page.This is my page.This is my page.
+            </p>`
+}
+ 
+function createTemplate(data) {
+var title=data.title;
+var date=data.date;
+var heading=data.heading;
+var content=date.content;
+var htmlTemplate=`<html>
+    <head>
+        <title>${title}</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link href="/ui/style.css" rel="stylesheet" />
+    </head>
+    <body>
+        <div class="container">
+        <div>
+            <a href="/">Home</a>
+        </div>
+        <hr/>
+        <h3>${heading}</h3>
+        <div>
+            ${date}
+        </div>
+        <div>
+        ${content}
+        </div>
+        </div>
+    </body>
+</html>`;
+return htmlTemplate;
+}
+
+app.get('/1', function (req, res) {
+  
+res.send(createTemplate(article1));
+
+});
+
+app.get('/2', function (req, res) {
+  
+res.send(createTemplate(article1));
+
+});
+
+
 app.get('/', function (req, res) {
   res.sendFile(path.join(__dirname, 'ui', 'index.html'));
 });
 
-app.get('/1', function (req, res) {
-  res.sendFile(path.join(__dirname, 'ui', '1.html'));
-});
-
-app.get('/2', function (req, res) {
-  res.send('hey2');
-});
 
 app.get('/3', function (req, res) {
   res.send('hey3');
@@ -34,3 +88,8 @@ var port = 8080; // Use 8080 for local development because you might already hav
 app.listen(8080, function () {
   console.log(`IMAD course app listening on port ${port}!`);
 });
+
+
+
+
+
