@@ -1,5 +1,5 @@
 console.log('Loaded!');
-
+alert("Loaded Successfully!");
 //alert('');
 //console.log('');
 //id ='only-unique'
@@ -11,7 +11,7 @@ console.log('Loaded!');
 //
 var element=document.getElementById('main-text');
 element.innerHTML='New Value';
-var img=document.getElementById('main-text');
+var img=document.getElementById('madi');
 img.onclick=function() {
 img.style.maginLeft='100px';
 };
