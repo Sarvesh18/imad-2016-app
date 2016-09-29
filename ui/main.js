@@ -4,7 +4,7 @@ alert('Loaded Successfully!');
 
 var element=document.getElementById("main-text");
 element.innerHTML="Sarvesh";
-var img=document.getElementById('madi');
-img.onclick=function() {
-img.style.maginLeft='100px';
+var image=document.getElementById('madi');
+image.onclick=function() {
+image.style.maginLeft='100px';
 };
