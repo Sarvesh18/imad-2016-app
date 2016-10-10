@@ -18,7 +18,7 @@ var marginLeft=0;
 function moveRight() {
 marginLeft=marginLeft + '1';
 image.style.marginLeft=marginLeft+'10px';
-var image=document.getElementById('');
+var image=document.getElementById('madi');
 }
 image.onclick=function() {
 var interval=setInterval(moveRight,50);//50 in ms
