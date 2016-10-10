@@ -13,7 +13,7 @@ image.style.marginLeft="100px";
 
 var element=document.getElementById('main-text');
 element.innerHTML='Sarvesh';
-var image=document.getElementById('');
+var image=document.getElementById('madi');
 var marginLeft=0;
 function moveRight() {
 marginLeft=marginLeft + '1';
