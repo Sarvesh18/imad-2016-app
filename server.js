@@ -93,7 +93,7 @@ var htmlTemplate=`
         <hr/>
         <h3>${heading}</h3>
         <div>
-        ${date.toDateString()}//Typecast to Date
+        ${date.toDateString()}
         </div>
         <div>
         ${content}
