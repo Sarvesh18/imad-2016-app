@@ -5,6 +5,7 @@ var path = require('path');
 var app = express();
 app.use(morgan('combined'));
 
+/*
 app.get('/:articleName', function (req, res) {
  
 //Express Framework after : take in var  
@@ -13,7 +14,7 @@ var articleName=req.params.articleName;
 res.send(createTemplate(articles[articleName]));
 
 });
-
+*/
 
 var articles = {
 'article-one': {
@@ -92,7 +93,7 @@ var htmlTemplate=`
         <hr/>
         <h3>${heading}</h3>
         <div>
-        ${date}
+        ${date.toDateString()}//Typecast to Date
         </div>
         <div>
         ${content}
