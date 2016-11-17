@@ -41,8 +41,6 @@ button.onclick=function() {
  //Request Object
  var request = new XMLHttpRequest();
 
-//Capture the response & store it in a var
-
  //Request Stage Browser Understand: 1-Open 2-Send 3-Loading 4-Loaded Successfully
  
  request.onreadystatechange = function() {
@@ -52,8 +50,6 @@ button.onclick=function() {
     var span=document.getElementById('count');
     span.innerHTML=counter.toString();
    }
-  }
-  else {
   }
  };
  //Make a request to the counter endpoint
