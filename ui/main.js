@@ -37,7 +37,7 @@ span.innerHTML=counter.toString();
 //AJAX
 var button = document.getElementById('counter');
 
-button.onclick=function() {
+button.onclick = function() {
  //Request Object
  var request = new XMLHttpRequest();
 
