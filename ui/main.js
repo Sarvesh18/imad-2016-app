@@ -2,14 +2,6 @@ console.log("Loaded!");
 
 alert('Loaded Successfully!');
 
-var button = document.getElementById('counter');
-var counter=0;
-
-button.onclick=function() {
-counter= counter+1;
-var span=document.getElementById('count');
-span.innerHTML=counter.toString();
-};
 /*
 var element=document.getElementById('main-text');
 element.innerHTML='Sarvesh';
@@ -29,4 +21,42 @@ image.style.marginLeft=marginLeft+'px';
 }
 image.onclick=function() {
 var interval=setInterval(moveRight,50);//50 in ms
+};
+
+/*
+var button = document.getElementById('counter');
+var counter=0;
+
+button.onclick=function() {
+counter= counter+1;
+var span=document.getElementById('count');
+span.innerHTML=counter.toString();
+};
+*/
+
+//AJAX
+var button = document.getElementById('counter');
+
+button.onclick=function() {
+ //Request Object
+ var request = new XMLHttpRequest();
+
+//Capture the response & store it in a var
+
+ //Request Stage Browser Understand: 1-Open 2-Send 3-Loading 4-Loaded Successfully
+ 
+ request.onreadystatechange = function() {
+  if(request.readyState == XMLhttpRequest.DONE) {
+   if(request.state == 200) { 
+    var counter = request.responseText;
+    var span=document.getElementById('count');
+    span.innerHTML=counter.toString();
+   }
+  }
+  else {
+  }
+ };
+ //Make a request to the counter endpoint
+ request.open('GET', 'http:// add/counter', true);
+ request.send(null);
 };
