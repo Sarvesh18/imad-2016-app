@@ -53,6 +53,6 @@ button.onclick=function() {
   }
  };
  //Make a request to the counter endpoint
- request.open('GET', 'http:// add/counter', true);
+ request.open('GET', 'http://sarvesh18.imad.hasura-app.io//counter', true);
  request.send(null);
 };
