@@ -24,6 +24,6 @@ submit.onclick = function() {
  console.log(password);
  //Make a Request
  request.open('POST', 'http://sarvesh18.imad.hasura-app.io/login', true);
- request.send(JSON, stringify({username: username, password:password}));
+ request.send(JSON.stringify({username: username, password:password}));
 };
 
