@@ -43,7 +43,7 @@ button.onclick = function() {
  //Request Stage Browser Understand: 1-Open 2-Send 3-Loading 4-Loaded Successfully
  
  request.onreadystatechange = function() {
-  if(request.readyState == XMLhttpRequest.DONE) {
+  if(request.readyState == XMLHttpRequest.DONE) {
    if(request.status == 200) { 
     var counter = request.responseText;
     var span=document.getElementById('count');
