@@ -34,7 +34,6 @@ span.innerHTML=counter.toString();
 };
 */
 
-//AJAX
 var button = document.getElementById('counter');
 
 button.onclick = function() {
@@ -50,6 +49,8 @@ button.onclick = function() {
     var span=document.getElementById('count');
     span.innerHTML=counter.toString();
    }
+  }
+  else {
   }
  };
  //Make a request to the counter endpoint
