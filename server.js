@@ -38,10 +38,10 @@ function hash(input, salt) {
 app.post('/signup', function (req, res) {
     var username = req.body.username;
     var password = req.body.password;
-    var email = req.body.email;
+    //var email = req.body.email;
 	var salt = crypto.randomBytes(128).toString('hex');       
 	var dbString = hash(password, salt);
-    pool.query('INSERT INTO "user" (username, password, email) VALUES ($1, $2, $3)', [username, dbString, email], function(err, result) {
+    pool.query('INSERT INTO "user" (username, password) VALUES ($1, $2)', [username, dbString], function(err, result) {
     if(err) {
         res.status(500).send(err.toString());
     } 
@@ -86,9 +86,8 @@ app.get('/check-login', function (req, res) {
            res.send('You are logged In:' + req.session.auth.userId.toString());
         }
         else {
-           res.send('You are not logged In');
+           res.send('You are ! logged In');
         }
-
 });
 
 app.get('/logout', function (req, res) {
