@@ -1,25 +1,21 @@
 var express = require('express');
 var morgan = require('morgan');
 var path = require('path');
-
+////////////////////////////////////////////////////////////////////////////////
 var Pool = require('pg').Pool;
 var crypto = require('crypto');
 var bodyParser = require('body-parser');
 var session = require('express-session');
-
-
-
+////////////////////////////////////////////////////////////////////////////////
 var app = express();
 app.use(morgan('combined'));
-
+////////////////////////////////////////////////////////////////////////////////
 app.use(bodyParser.json());
 app.use(session({
    secret: 'someRandomSecretValue',
    cookie: { maxAge: 1000 * 60 * 60 * 24 * 30 }//Millisec
 }));
-
-
-
+////////////////////////////////////////////////////////////////////////////////
 var config = {
   host: 'db.imad.hasura-app.io',
   port: '5432',
@@ -28,14 +24,11 @@ var config = {
   database: 'sarvesh18',
   password: process.env.DB_PASSWORD 
 };
-
-
-
+////////////////////////////////////////////////////////////////////////////////
 app.get('/', function (req, res) {
   res.sendFile(path.join(__dirname, 'ui', 'index.html'));
 });
-
-/////////////////////////////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////
 function hash(input, salt) {
     var hashed = crypto.pbkdf2Sync(input, salt, 10000, 512, 'sha512');
     return ["pbkdf2", "10000", salt, hashed.toString('hex')].join('$'); 
@@ -62,7 +55,7 @@ app.post('/signup', function (req, res) {
 app.post('/login', function (req, res) {
     var username = req.body.username;
     var password = req.body.password;
-    pool.query('SELECT password FROM "user" WHERE username = $1', [username], function(err, result) {
+    pool.query('SELECT * FROM "user" WHERE username = $1', [username], function(err, result) {
     if(err) {
         res.status(500).send(err.toString());
     } 
@@ -113,7 +106,7 @@ app.get('/hash/:input', function (req, res) {
 	res.send(hashedString);
 
 });
-
+////////////////////////////////////////////////////////////////////////////////
 var articles = {
 'article-one': {
 title: '1 | Sarvesh',
@@ -208,7 +201,7 @@ res.send(createTemplate(articles[articleName]));
 });
 
 
-
+////////////////////////////////////////////////////////////////////////////////
 app.get('/ui/style.css', function (req, res) {
   res.sendFile(path.join(__dirname, 'ui', 'style.css'));
 });
