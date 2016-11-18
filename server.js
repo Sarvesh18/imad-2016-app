@@ -36,11 +36,6 @@ function hash(input, salt) {
     return ["pbkdf2", "10000", salt, hashed.toString('hex')].join('$'); 
 }
 
-app.get('/hash/:input', function (req, res) {
-    var hashedString = hash(req.params.input,'salt');       
-	res.send(hashedString);
-});
-
 //Post Request
 app.post('/signup', function (req, res) {
     var username = req.body.username;
