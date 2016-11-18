@@ -38,7 +38,7 @@ submit.onclick = function() {
   if(request.readyState == XMLHttpRequest.DONE) {
    //Take Some Action
    if(request.status == 200) { 
-    alert('Logged In Successfully');
+    alert('Registered In Successfully ');
    }
    else if(request.status == 403) { 
     alert('username/password is incorrect');
@@ -50,11 +50,13 @@ submit.onclick = function() {
  };
  var username = document.getElementById('username').value;
  var password = document.getElementById('password').value;
+ var password = document.getElementById('email').value;
  console.log(username);
  console.log(password);
+ console.log(email);
  //Make a Request
- request.open('POST', 'http://sarvesh18.imad.hasura-app.io/login', true);
+ request.open('POST', 'http://sarvesh18.imad.hasura-app.io/signup', true);
  request.setRequestHeader('Content-Type','application/json');
- request.send(JSON.stringify({username: username, password:password}));
+ request.send(JSON.stringify({username: username, password:password, email:email}));
 };
 
