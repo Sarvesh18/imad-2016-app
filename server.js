@@ -5,6 +5,7 @@ var path = require('path');
 var Pool = require('pg').Pool;
 var crypto = require('crypto');
 var bodyParser = require('body-parser');
+var session = require('express-session');
 
 
 
@@ -12,6 +13,10 @@ var app = express();
 app.use(morgan('combined'));
 
 app.use(bodyParser.json());
+app.use(session({
+   secret: 'someRandomSecretValue',
+   cookie: { maxAge: 1000 * 60 * 60 * 24 * 30 }//Millisec
+}));
 
 
 
@@ -69,8 +74,8 @@ app.post('/login', function (req, res) {
            var salt = dbString.split('$')[2];
            var hashedPassword  = hash(password, salt);
            if(hashedPassword == dbString) {
+            req.session.auth = {userId: result.rows[0].id};
             res.send('Credentials Correct!');
-            //Set a Session
            }
            else {
             res.send(403).send('Username/Password is Invalid');
@@ -80,6 +85,33 @@ app.post('/login', function (req, res) {
         });
 });
 
+
+app.get('/check-login', function (req, res) {
+
+	if(req.session && req.session.auth && req.session.auth.userId) {
+           req.send('You are logged In:' + req.session.auth.userId.toString());
+        }
+        else {
+           res.send('You are not logged In');
+        }
+
+});
+
+app.get('/logout', function (req, res) {
+
+	delete req.session.auth;       
+
+	res.send('Logged Out');
+
+});
+
+app.get('/hash/:input', function (req, res) {
+
+	var hashedString = hash(req.params.input,'salt');       
+
+	res.send(hashedString);
+
+});
 
 var articles = {
 'article-one': {
