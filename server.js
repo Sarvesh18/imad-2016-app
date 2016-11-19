@@ -40,7 +40,7 @@ app.post('/subscription', function (req, res) {
     var emailA = req.body.emailA;
     var subjectA = req.body.subjectA;
     var likeA = req.body.likeA;
-    pool.query('INSERT INTO "subscription" (name, email, subject, like) VALUES ($1, $2, $3, $4)', [nameA, emailA, subjectA, likeA], function(err, result) {
+    pool.query('INSERT INTO "add" (name, email, subject, like) VALUES ($1, $2, $3, $4)', [nameA, emailA, subjectA, likeA], function(err, result) {
     if(err) {
         res.status(500).send(err.toString());
     } 
