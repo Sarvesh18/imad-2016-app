@@ -1,5 +1,5 @@
-    var subscription = document.getElementById('subscription_btn');
-    subscription.onclick = function () {
+    var add = document.getElementById('add_btn');
+    add.onclick = function () {
         // Create a request object
         var request = new XMLHttpRequest();
         
@@ -9,10 +9,10 @@
               // Take some action
               if (request.status === 200) {
                   alert('User Added Successfully');
-                  //subscription.value = 'Add!';
+                  //add.value = 'Add!';
               } else {
                   alert('Could ! Add');
-                  //subscription.value = 'Add';
+                  //add.value = 'Add';
               }
           }
         };
@@ -30,7 +30,7 @@
         request.open('POST', '/subscription', true);
         request.setRequestHeader('Content-Type', 'application/json');
         request.send(JSON.stringify({name: nameA, email: emailA, subject: subjectA, like: likeA}));  
-        //subscription.value = 'Adding...';
+        //add.value = 'Adding...';
     
     };
 ////////////////////////////////////////////////////////////////////////////////
