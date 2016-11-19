@@ -34,7 +34,7 @@
     
     };
 ////////////////////////////////////////////////////////////////////////////////
-    var submit = document.getElementById('login_btn');
+    var submit = document.getElementById('submit_btn');
     submit.onclick = function () {
         // Create a request object
         var request = new XMLHttpRequest();
