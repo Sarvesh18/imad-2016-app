@@ -11,7 +11,7 @@
                   alert('User Added Successfully');
                   //subscription.value = 'Add!';
               } else {
-                  alert('Could ! Register');
+                  alert('Could ! Add');
                   //subscription.value = 'Add';
               }
           }
