@@ -18,15 +18,18 @@
         };
         
         // Make the request
+        var likeA = false;
         var usernameA = document.getElementById('nameA').value;
         var emailA = document.getElementById('emailA').value;
         var subjectA = document.getElementById('subjectA').value;
+        var likeA = document.getElementById('likeA').value;
         console.log(nameA);
         console.log(emailA);
         console.log(subjectA);
+        console.log(likeA);
         request.open('POST', '/subscription', true);
         request.setRequestHeader('Content-Type', 'application/json');
-        request.send(JSON.stringify({name: nameA, email: emailA subject: subjectA}));  
+        request.send(JSON.stringify({name: nameA, email: emailA subject: subjectA like: likeA}));  
         subscription.value = 'Adding...';
     
     };
