@@ -35,7 +35,7 @@ function hash(input, salt) {
 }
 
 //Post Request
-app.post('/subscription', function (req, res) {
+app.post('/add', function (req, res) {
     var nameA = req.body.nameA;
     var emailA = req.body.emailA;
     var subjectA = req.body.subjectA;
