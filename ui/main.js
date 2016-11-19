@@ -1,3 +1,36 @@
+    var subscription = document.getElementById('subscription_btn');
+    subscription.onclick = function () {
+        // Create a request object
+        var request = new XMLHttpRequest();
+        
+        // Capture the response and store it in a variable
+        request.onreadystatechange = function () {
+          if (request.readyState === XMLHttpRequest.DONE) {
+              // Take some action
+              if (request.status === 200) {
+                  alert('User Added Successfully');
+                  subscription.value = 'Add!';
+              } else {
+                  alert('Could ! Register');
+                  subscription.value = 'Add';
+              }
+          }
+        };
+        
+        // Make the request
+        var usernameA = document.getElementById('nameA').value;
+        var emailA = document.getElementById('emailA').value;
+        var subjectA = document.getElementById('subjectA').value;
+        console.log(nameA);
+        console.log(emailA);
+        console.log(subjectA);
+        request.open('POST', '/subscription', true);
+        request.setRequestHeader('Content-Type', 'application/json');
+        request.send(JSON.stringify({name: nameA, email: emailA subject: subjectA}));  
+        subscription.value = 'Adding...';
+    
+    };
+////////////////////////////////////////////////////////////////////////////////
     var submit = document.getElementById('login_btn');
     submit.onclick = function () {
         // Create a request object
@@ -18,19 +51,19 @@
                   alert('Something wen Wrong!!!');
                   submit.value = 'Login';
               }
-              loadLogin();
+              //loadLogin();
           }  
           // Not done yet
         };
         
         // Make the request
-        var username = document.getElementById('username').value;
-        var password = document.getElementById('password').value;
-        console.log(username);
-        console.log(password);
+        var username = document.getElementById('usernameS').value;
+        var password = document.getElementById('passwordS').value;
+        console.log(usernameS);
+        console.log(passwordS);
         request.open('POST', '/login', true);
         request.setRequestHeader('Content-Type', 'application/json');
-        request.send(JSON.stringify({username: username, password: password}));  
+        request.send(JSON.stringify({username: usernameS, password: passwordS}));  
         submit.value = 'Logging in...';
         
     };
@@ -55,13 +88,15 @@
         };
         
         // Make the request
-        var username = document.getElementById('username').value;
-        var password = document.getElementById('password').value;
-        console.log(username);
-        console.log(password);
+        var username = document.getElementById('usernameR').value;
+        var password = document.getElementById('passwordR').value;
+        var email = document.getElementById('emailR').value;
+        console.log(usernameR);
+        console.log(passwordR);
+        console.log(emailR);
         request.open('POST', '/signup', true);
         request.setRequestHeader('Content-Type', 'application/json');
-        request.send(JSON.stringify({username: username, password: password}));  
+        request.send(JSON.stringify({username: usernameR, password: passwordR}));  
         register.value = 'Registering...';
     
     };
