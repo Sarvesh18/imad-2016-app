@@ -39,12 +39,13 @@ app.post('/subscription', function (req, res) {
     var nameA = req.body.nameA;
     var emailA = req.body.emailA;
     var subjectA = req.body.subjectA;
-    pool.query('INSERT INTO "subscription" (name, email, subject) VALUES ($1, $2, $3)', [nameA, emailA, subjectA], function(err, result) {
+    var likeA = req.body.likeA;
+    pool.query('INSERT INTO "subscription" (name, email, subject, like) VALUES ($1, $2, $3, $4)', [nameA, emailA, subjectA, likeA], function(err, result) {
     if(err) {
         res.status(500).send(err.toString());
     } 
     else {
-        res.send('User Successfully Created:'+subjectS);
+        res.send('User Successfully Created:'+subjectA);
     } 
   });
 });
