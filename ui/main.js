@@ -27,7 +27,7 @@
         console.log(emailA);
         console.log(subjectA);
         console.log(likeA);
-        request.open('POST', '/add', true);
+        request.open('POST', 'http://sarvesh18.imad.hasura-app.io/add', true);
         request.setRequestHeader('Content-Type', 'application/json');
         request.send(JSON.stringify({name: nameA, email: emailA, subject: subjectA, like: likeA}));  
         //add.value = 'Adding...';
@@ -65,7 +65,7 @@
         var password = document.getElementById('passwordS').value;
         console.log(usernameS);
         console.log(passwordS);
-        request.open('POST', '/login', true);
+        request.open('POST', 'http://sarvesh18.imad.hasura-app.io/login', true);
         request.setRequestHeader('Content-Type', 'application/json');
         request.send(JSON.stringify({username: usernameS, password: passwordS}));  
         //submit.value = 'Logging in...';
@@ -98,7 +98,7 @@
         console.log(usernameR);
         console.log(passwordR);
         console.log(emailR);
-        request.open('POST', '/signup', true);
+        request.open('POST', 'http://sarvesh18.imad.hasura-app.io/signup', true);
         request.setRequestHeader('Content-Type', 'application/json');
         request.send(JSON.stringify({username: usernameR, password: passwordR}));  
         //register.value = 'Registering...';
