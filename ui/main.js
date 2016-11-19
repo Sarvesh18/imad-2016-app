@@ -27,7 +27,7 @@
         console.log(emailA);
         console.log(subjectA);
         console.log(likeA);
-        request.open('POST', '/subscription', true);
+        request.open('POST', '/add', true);
         request.setRequestHeader('Content-Type', 'application/json');
         request.send(JSON.stringify({name: nameA, email: emailA, subject: subjectA, like: likeA}));  
         //add.value = 'Adding...';
