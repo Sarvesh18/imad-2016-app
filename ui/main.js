@@ -9,10 +9,10 @@
               // Take some action
               if (request.status === 200) {
                   alert('User Added Successfully');
-                  subscription.value = 'Add!';
+                  //subscription.value = 'Add!';
               } else {
                   alert('Could ! Register');
-                  subscription.value = 'Add';
+                  //subscription.value = 'Add';
               }
           }
         };
@@ -30,7 +30,7 @@
         request.open('POST', '/subscription', true);
         request.setRequestHeader('Content-Type', 'application/json');
         request.send(JSON.stringify({name: nameA, email: emailA subject: subjectA like: likeA}));  
-        subscription.value = 'Adding...';
+        //subscription.value = 'Adding...';
     
     };
 ////////////////////////////////////////////////////////////////////////////////
@@ -44,19 +44,20 @@
           if (request.readyState === XMLHttpRequest.DONE) {
               // Take some action
               if (request.status === 200) {
-                  submit.value = 'Logged In Successfully!';
+                  alert('Logged In Successfully!');
+                  //submit.value = 'Logged In Successfully!';
               } else if (request.status === 403) {
-                  submit.value = 'Invalid Credentials! Try Again!';
+                  alert('Invalid Credentials! Try Again!');
+                  //submit.value = 'Invalid Credentials! Try Again!';
               } else if (request.status === 500) {
                   alert('Something wen Wrong!!!');
-                  submit.value = 'Login';
+                  //submit.value = 'Login';
               } else {
                   alert('Something wen Wrong!!!');
-                  submit.value = 'Login';
+                  //submit.value = 'Login';
               }
               //loadLogin();
           }  
-          // Not done yet
         };
         
         // Make the request
@@ -67,7 +68,7 @@
         request.open('POST', '/login', true);
         request.setRequestHeader('Content-Type', 'application/json');
         request.send(JSON.stringify({username: usernameS, password: passwordS}));  
-        submit.value = 'Logging in...';
+        //submit.value = 'Logging in...';
         
     };
 ////////////////////////////////////////////////////////////////////////////////    
@@ -82,10 +83,10 @@
               // Take some action
               if (request.status === 200) {
                   alert('User Register Successfully');
-                  register.value = 'Registered!';
+                  //register.value = 'Registered!';
               } else {
                   alert('Could ! Register');
-                  register.value = 'Register';
+                  //register.value = 'Register';
               }
           }
         };
@@ -100,6 +101,6 @@
         request.open('POST', '/signup', true);
         request.setRequestHeader('Content-Type', 'application/json');
         request.send(JSON.stringify({username: usernameR, password: passwordR}));  
-        register.value = 'Registering...';
+        //register.value = 'Registering...';
     
     };
