@@ -35,18 +35,33 @@ function hash(input, salt) {
 }
 
 //Post Request
-app.post('/signup', function (req, res) {
-    var username = req.body.username;
-    var password = req.body.password;
-    //var email = req.body.email;
-	var salt = crypto.randomBytes(128).toString('hex');       
-	var dbString = hash(password, salt);
-    pool.query('INSERT INTO "user" (username, password) VALUES ($1, $2)', [username, dbString], function(err, result) {
+app.post('/subscription', function (req, res) {
+    var nameA = req.body.nameA;
+    var emailA = req.body.emailA;
+    var subjectA = req.body.subjectA;
+    pool.query('INSERT INTO "subscription" (name, email, subject) VALUES ($1, $2, $3)', [nameA, emailA, subjectA], function(err, result) {
     if(err) {
         res.status(500).send(err.toString());
     } 
     else {
-        res.send('User Successfully Created:'+username);
+        res.send('User Successfully Created:'+subjectS);
+    } 
+  });
+});
+
+//Post Request
+app.post('/signup', function (req, res) {
+    var usernameR = req.body.usernameR;
+    var passwordR = req.body.passwordR;
+    var emailR = req.body.emailR;
+	var salt = crypto.randomBytes(128).toString('hex');       
+	var dbString = hash(passwordR, salt);
+    pool.query('INSERT INTO "user" (username, password, email) VALUES ($1, $2, $3)', [usernameR, dbString, emailR], function(err, result) {
+    if(err) {
+        res.status(500).send(err.toString());
+    } 
+    else {
+        res.send('User Successfully Created:'+usernameR);
     } 
   });
 });
