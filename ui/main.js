@@ -29,7 +29,7 @@
         console.log(likeA);
         request.open('POST', '/subscription', true);
         request.setRequestHeader('Content-Type', 'application/json');
-        request.send(JSON.stringify({name: nameA, email: emailA subject: subjectA like: likeA}));  
+        request.send(JSON.stringify({name: nameA, email: emailA, subject: subjectA, like: likeA}));  
         //subscription.value = 'Adding...';
     
     };
