@@ -55,7 +55,7 @@ app.post('/signup', function (req, res) {
   });
 });
 
-app.get('/:test-db', function (req, res) {
+app.post('/:test-db', function (req, res) {
 
     var username = "sar"; 
 	pool.query('INSERT INTO "test" (name) VALUES ($1)', [name], function(err, result) {
