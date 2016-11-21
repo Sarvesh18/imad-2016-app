@@ -3,7 +3,7 @@
         <h3>Login/Register to unlock awesome features</h3>
         <input type="text" id="usernameL" placeholder="username" />
         <input type="password" id="passwordL" />
-        <input type="text" id="email" placeholder="emailL" />
+        <input type="text" id="emailL" placeholder="emailL" />
         <br/><br/>
         <input type="submit" id="login_btn" value="Login" />
         <input type="submit" id="register_btn" value="Register" />
