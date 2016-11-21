@@ -34,10 +34,8 @@ function hash(input, salt) {
 }
 
 app.get('/hash/:input', function (req, res) {
-
-	var hashedString = hash(req.params.input,'salt');       
-
-	res.send(hashedString);
+    var hashedString = hash(req.params.input,'salt');       
+    res.send(hashedString);
 
 });
 
@@ -124,20 +122,19 @@ app.post('/login', function (req, res) {
 app.get('/check-login', function (req, res) {
    if (req.session && req.session.auth && req.session.auth.userId) {
        // Load the user object
-           /*
-           pool.query('SELECT * FROM "user" WHERE id = $1', [req.session.auth.userId], function (err, result) {
+       pool.query('SELECT * FROM "user" WHERE id = $1', [req.session.auth.userId], function (err, result) {
            if (err) {
               res.status(500).send(err.toString());
-           } else {
+           } 
+	   else {
               res.send(result.rows[0].username);    
            }
        });
-	   */
-	   res.send('You are logged In:' + req.session.auth.userId.toString());
-	   } 
-	   else {
-	   res.send('You are ! logged In');
-       //res.status(400).send('You are not logged in');
+       //res.send('You are logged In:' + req.session.auth.userId.toString());
+   } 
+   else {
+	 //  res.send('You are ! logged In');
+       res.status(400).send('You are not logged in');
    }
 });
 
@@ -149,6 +146,7 @@ app.get('/logout', function (req, res) {
 
 });
 
+/*
 var pool = new Pool(config);
 
 app.get('/get-articles', function (req, res) {
@@ -162,7 +160,6 @@ app.get('/get-articles', function (req, res) {
       }
    });
 });
-/*
 ////////////////////////////////////////////////////////////////////////////////
 var articles = {
 'article-one': {
