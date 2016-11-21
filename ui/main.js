@@ -6,8 +6,10 @@
           if (request.readyState === XMLHttpRequest.DONE) {
               if (request.status === 200) {
                   alert('Respond Submit Successfully');
+                  submit.value = 'Added';
               } else {
                   alert('Respond Could ! Submit');
+                  submit.value = '! Added';
               }
           }
         };
@@ -22,10 +24,10 @@
         console.log(like);
         request.open('POST', 'http://sarvesh18.imad.hasura-app.io/submit', true);
         request.setRequestHeader('Content-Type', 'application/json');
-        request.send(JSON.stringify({"name": name, "email": email, "subject": subject, "like": like}));  
+        request.send(JSON.stringify({"name": name, "email": email, "subject": subject, "like": like}));
+        submit.value = 'Wait...';
     };
 ////////////////////////////////////////////////////////////////////////////////
- 
  function loadLoginForm () {
     var loginHtml = `
         <h3>Login/Register to unlock awesome features</h3>
@@ -38,25 +40,23 @@
     document.getElementById('login_area').innerHTML = loginHtml;
     
     // Submit username/password to login
-    var submit = document.getElementById('login_btn');
-    submit.onclick = function () {
+    var login = document.getElementById('login_btn');
+    login.onclick = function () {
         // Create a request object
         var request = new XMLHttpRequest();
-        
-        // Capture the response and store it in a variable
         request.onreadystatechange = function () {
           if (request.readyState === XMLHttpRequest.DONE) {
               // Take some action
               if (request.status === 200) {
-                  submit.value = 'Sucess!';
+                  login.value = 'Sucess';
               } else if (request.status === 403) {
-                  submit.value = 'Invalid credentials. Try again?';
+                  login.value = 'Invalid credentials. Try again?';
               } else if (request.status === 500) {
                   alert('Something went wrong on the server');
-                  submit.value = 'Login';
+                  login.value = 'Login';
               } else {
                   alert('Something went wrong on the server');
-                  submit.value = 'Login';
+                  login.value = 'Login';
               }
              // loadLogin();
           }  
@@ -71,7 +71,7 @@
         request.open('POST', 'http://sarvesh18.imad.hasura-app.io/login', true);
         request.setRequestHeader('Content-Type', 'application/json');
         request.send(JSON.stringify({"username": username, "password": password}));  
-        submit.value = 'Logging in...';
+        login.value = 'Logging in...';
     };
     
     var register = document.getElementById('signup_btn');
