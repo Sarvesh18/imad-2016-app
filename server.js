@@ -39,19 +39,6 @@ app.get('/hash/:input', function (req, res) {
     res.send(hashedString);
 });
 
-app.get('/:test-db', function (req, res) {
-
-    var username = "sar"; 
-	pool.query('INSERT INTO "test" (name) VALUES ($1)', [name], function(err, result) {
-         if(err) {
-          res.status(500).send(err.toString());
-         } else {
-          //res.send(JSON.stringify(result));
-          res.send(JSON.stringify(result.rows));//Only Rows
-         }
-	});
-});
-
 //Post Request
 app.post('/signup', function (req, res) {
     var username = req.body.username;
@@ -66,6 +53,19 @@ app.post('/signup', function (req, res) {
         res.send('User Successfully Created:'+username);
     } 
   });
+});
+
+app.get('/:test-db', function (req, res) {
+
+    var username = "sar"; 
+	pool.query('INSERT INTO "test" (name) VALUES ($1)', [name], function(err, result) {
+         if(err) {
+          res.status(500).send(err.toString());
+         } else {
+          //res.send(JSON.stringify(result));
+          res.send(JSON.stringify(result.rows));//Only Rows
+         }
+	});
 });
 
 //Post Request
