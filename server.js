@@ -55,9 +55,9 @@ app.post('/signup', function (req, res) {
   });
 });
 
-app.post('/:test-db', function (req, res) {
+app.get('/:test-db', function (req, res) {
 
-    var username = "sar"; 
+    var name = "sar"; 
 	pool.query('INSERT INTO "test" (name) VALUES ($1)', [name], function(err, result) {
          if(err) {
           res.status(500).send(err.toString());
