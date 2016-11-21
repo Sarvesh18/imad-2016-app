@@ -56,6 +56,7 @@ app.post('/submit', function (req, res) {
    });
 });
 
+var pool = new Pool(config);
 
 //Post Request
 app.post('/signup', function (req, res) {
