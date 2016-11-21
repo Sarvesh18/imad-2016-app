@@ -61,10 +61,10 @@
           if (request.readyState === XMLHttpRequest.DONE) {
               if (request.status === 200) {
                   alert('Respond Submit Successfully');
-                  submit.value = 'Added';
+                  submit.value = 'Thank You';
                 } else {
                     alert('Respond Could ! Submit');
-                    submit.value = '! Added';
+                    submit.value = 'Try Again';
               }
           }
         };
