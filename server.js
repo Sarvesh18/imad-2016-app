@@ -7,6 +7,14 @@ var crypto = require('crypto');
 var bodyParser = require('body-parser');
 var session = require('express-session');
 ////////////////////////////////////////////////////////////////////////////////
+var config = {
+  host: 'db.imad.hasura-app.io',
+  port: '5432',
+  user: 'sarvesh18',
+  database: 'sarvesh18',
+  password: process.env.DB_PASSWORD 
+};
+////////////////////////////////////////////////////////////////////////////////
 var app = express();
 app.use(morgan('combined'));
 ////////////////////////////////////////////////////////////////////////////////
@@ -15,15 +23,6 @@ app.use(session({
    secret: 'someRandomSecretValue',
    cookie: { maxAge: 1000 * 60 * 60 * 24 * 30 }//Millisec
 }));
-////////////////////////////////////////////////////////////////////////////////
-var config = {
-  host: 'db.imad.hasura-app.io',
-  port: '5432',
-  user: 'sarvesh18',
-  //password: 'db-sarvesh18-95101',
-  database: 'sarvesh18',
-  password: process.env.DB_PASSWORD 
-};
 ////////////////////////////////////////////////////////////////////////////////
 app.get('/', function (req, res) {
   res.sendFile(path.join(__dirname, 'ui', 'index.html'));
@@ -34,22 +33,32 @@ function hash(input, salt) {
     return ["pbkdf2", "10000", salt, hashed.toString('hex')].join('$'); 
 }
 
-//Post Request
-app.post('/add', function (req, res) {
-    var nameA = req.body.nameA;
-    var emailA = req.body.emailA;
-    var subjectA = req.body.subjectA;
-    var likeA = req.body.likeA;
-    pool.query('INSERT INTO "add" (name, email, subject, like) VALUES ($1, $2, $3, $4)', [nameA, emailA, subjectA, likeA], function(err, result) {
-    if(err) {
-        res.status(500).send(err.toString());
-    } 
-    else {
-        res.send('User Successfully Created:'+subjectA);
-    } 
-  });
+app.get('/hash/:input', function (req, res) {
+
+	var hashedString = hash(req.params.input,'salt');       
+
+	res.send(hashedString);
+
 });
 
+app.post('/create-user', function (req, res) {
+   // username, password
+   // {"username": "tanmai", "password": "password"}
+   // JSON
+   var username = req.body.username;
+   var password = req.body.password;
+   var salt = crypto.randomBytes(128).toString('hex');
+   var dbString = hash(password, salt);
+   pool.query('INSERT INTO "user" (username, password) VALUES ($1, $2)', [username, dbString], function (err, result) {
+      if (err) {
+          res.status(500).send(err.toString());
+      } else {
+          res.send('User successfully created: ' + username);
+      }
+   });
+});
+
+/*
 //Post Request
 app.post('/signup', function (req, res) {
     var usernameR = req.body.usernameR;
@@ -65,6 +74,22 @@ app.post('/signup', function (req, res) {
         res.send('User Successfully Created:'+usernameR);
     } 
   });
+});
+
+//Post Request
+app.post('/add', function (req, res) {
+    var nameA = req.body.nameA;
+    var emailA = req.body.emailA;
+    var subjectA = req.body.subjectA;
+    var likeA = req.body.likeA;
+    pool.query('INSERT INTO "add" (name, email, subject, like) VALUES ($1, $2, $3, $4)', [nameA, emailA, subjectA, likeA], function(err, result) {
+    if(err) {
+        res.status(500).send(err.toString());
+    } 
+    else {
+        res.send('User Successfully Created:'+subjectA);
+    } 
+   });
 });
 
 //Post Request
@@ -90,20 +115,30 @@ app.post('/login', function (req, res) {
            else {
             res.send(403).send('Username/Password is Invalid');
            } 
-          }
-         }
-        });
+        }
+    }
+   });
 });
-
+*/
 
 app.get('/check-login', function (req, res) {
-
-	if(req.session && req.session.auth && req.session.auth.userId) {
-           res.send('You are logged In:' + req.session.auth.userId.toString());
-        }
-        else {
-           res.send('You are ! logged In');
-        }
+   if (req.session && req.session.auth && req.session.auth.userId) {
+       // Load the user object
+           /*
+           pool.query('SELECT * FROM "user" WHERE id = $1', [req.session.auth.userId], function (err, result) {
+           if (err) {
+              res.status(500).send(err.toString());
+           } else {
+              res.send(result.rows[0].username);    
+           }
+       });
+	   */
+	   res.send('You are logged In:' + req.session.auth.userId.toString());
+	   } 
+	   else {
+	   res.send('You are ! logged In');
+       //res.status(400).send('You are not logged in');
+   }
 });
 
 app.get('/logout', function (req, res) {
@@ -114,13 +149,20 @@ app.get('/logout', function (req, res) {
 
 });
 
-app.get('/hash/:input', function (req, res) {
+var pool = new Pool(config);
 
-	var hashedString = hash(req.params.input,'salt');       
-
-	res.send(hashedString);
-
+app.get('/get-articles', function (req, res) {
+   // make a select request
+   // return a response with the results
+   pool.query('SELECT * FROM article ORDER BY date DESC', function (err, result) {
+      if (err) {
+          res.status(500).send(err.toString());
+      } else {
+          res.send(JSON.stringify(result.rows));
+      }
+   });
 });
+/*
 ////////////////////////////////////////////////////////////////////////////////
 var articles = {
 'article-one': {
@@ -216,25 +258,6 @@ res.send(createTemplate(articles[articleName]));
 });
 
 
-////////////////////////////////////////////////////////////////////////////////
-app.get('/ui/style.css', function (req, res) {
-  res.sendFile(path.join(__dirname, 'ui', 'style.css'));
-});
-
-app.get('/ui/main.js', function (req, res) {
-  res.sendFile(path.join(__dirname, 'ui', 'main.js'));
-});
-
-//app.get('/ui/favicon.ico', function (req, res) {
- // res.sendFile(path.join(__dirname, 'ui', 'madi.png'));
-//});
-
-var port = 8080; // Use 8080 for local development because you might already have apache running on 80
-app.listen(8080, function () {
-  console.log(`IMAD course app listening on port ${port}!`);
-});
-
-
 var pool = new Pool(config);
 
 app.get('/:test-db', function (req, res) {
@@ -249,6 +272,27 @@ app.get('/:test-db', function (req, res) {
           res.send(JSON.stringify(result.rows));//Only Rows
          }
 	});
+});
+*/
+////////////////////////////////////////////////////////////////////////////////
+app.get('/ui/style.css', function (req, res) {
+  res.sendFile(path.join(__dirname, 'ui', 'style.css'));
+});
+
+app.get('/ui/main.js', function (req, res) {
+  res.sendFile(path.join(__dirname, 'ui', 'main.js'));
+});
+
+//app.get('/ui/favicon.ico', function (req, res) {
+ // res.sendFile(path.join(__dirname, 'ui', 'madi.png'));
+//});
+
+app.get('/ui/:fileName', function (req, res) {
+  res.sendFile(path.join(__dirname, 'ui', req.params.fileName));
+});
 
 
+var port = 8080; // Use 8080 for local development because you might already have apache running on 80
+app.listen(8080, function () {
+  console.log(`IMAD course app listening on port ${port}!`);
 });
