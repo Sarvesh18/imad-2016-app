@@ -41,11 +41,10 @@
         var password = document.getElementById('passwordL').value;
         console.log(usernameL);
         console.log(passwordL);
-        request.open('POST', '/login', true);
+        request.open('POST', 'http://sarvesh18.imad.hasura-app.io/login', true);
         request.setRequestHeader('Content-Type', 'application/json');
         request.send(JSON.stringify({"usernameL": usernameL, "passwordL": passwordL}));  
         submit.value = 'Logging in...';
-        
     };
     
     var register = document.getElementById('signup_btn');
