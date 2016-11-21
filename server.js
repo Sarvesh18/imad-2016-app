@@ -42,17 +42,17 @@ app.get('/hash/:input', function (req, res) {
 
 //Post Request
 app.post('/signup', function (req, res) {
-    var username = req.body.usernameL;
-    var password = req.body.passwordL;
-    var email = req.body.emailL;
+    var usernameS = req.body.usernameS;
+    var passwordS = req.body.passwordS;
+    var emailS = req.body.emailS;
 	var salt = crypto.randomBytes(128).toString('hex');       
-	var dbString = hash(password, salt);
-    pool.query('INSERT INTO "user" (username, password, email) VALUES ($1, $2, $3)', [username, dbString,  email], function(err, result) {
+	var dbString = hash(passwordS, salt);
+    pool.query('INSERT INTO "user" (username, password, email) VALUES ($1, $2, $3)', [usernameS, dbStringS,  emailS], function(err, result) {
     if(err) {
         res.status(500).send(err.toString());
     } 
     else {
-        res.send('User Successfully Created:'+username);
+        res.send('User Successfully Created:'+usernameS);
     } 
   });
 });
