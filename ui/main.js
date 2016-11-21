@@ -76,7 +76,7 @@
         console.log(emailL);
         request.open('POST', 'http://sarvesh18.imad.hasura-app.io/signup', true);
         request.setRequestHeader('Content-Type', 'application/json');
-        request.send(JSON.stringify({"username": usernameL, "password": passwordL, "email": emailL}));  
+        request.send(JSON.stringify({"usernameL": usernameL, "passwordL": passwordL, "emailL": emailL}));  
         register.value = 'Registering...';
     };
 }
