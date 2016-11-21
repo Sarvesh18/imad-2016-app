@@ -8,13 +8,13 @@ var bodyParser = require('body-parser');
 var session = require('express-session');
 ////////////////////////////////////////////////////////////////////////////////
 var config = {
-  host: 'db.imad.hasura-app.io',
-  port: '5432',
   user: 'sarvesh18',
   database: 'sarvesh18',
-  password: 'db-sarvesh18-95101'
-  //password: process.env.DB_PASSWORD 
+  host: 'db.imad.hasura-app.io',
+  port: '5432', //password: 'db-sarvesh18-95101',
+  password: process.env.DB_PASSWORD //Environment Variable
 };
+var pool = new Pool(config);
 ////////////////////////////////////////////////////////////////////////////////
 var app = express();
 app.use(morgan('combined'));
@@ -39,7 +39,6 @@ app.get('/hash/:input', function (req, res) {
     res.send(hashedString);
 });
 
-var pool = new Pool(config);
 //Post Request
 app.post('/signup', function (req, res) {
     var username = req.body.username;
