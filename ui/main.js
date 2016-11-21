@@ -3,7 +3,7 @@
         <h3>Login/Register to unlock awesome features</h3>
         <input type="text" id="usernameL" placeholder="username" />
         <input type="password" id="passwordL" />
-        <input type="text" id="emailS" placeholder="emailL" />
+        <input type="text" id="email" placeholder="email" />
         <br/><br/>
         <input type="submit" id="login_btn" value="Login" />
         <input type="submit" id="register_btn" value="Register" />
@@ -37,13 +37,13 @@
         };
         
         // Make the request
-        var username = document.getElementById('username').value;
-        var password = document.getElementById('password').value;
-        console.log(username);
-        console.log(password);
+        var username = document.getElementById('usernameL').value;
+        var password = document.getElementById('passwordL').value;
+        console.log(usernameL);
+        console.log(passwordL);
         request.open('POST', '/login', true);
         request.setRequestHeader('Content-Type', 'application/json');
-        request.send(JSON.stringify({"username": "username", "password": "password"}));  
+        request.send(JSON.stringify({"usernameL": usernameL, "passwordL": passwordL}));  
         submit.value = 'Logging in...';
         
     };
