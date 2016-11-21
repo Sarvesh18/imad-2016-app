@@ -1,3 +1,31 @@
+////////////////////////////////////////////////////////////////////////////////
+    var submit = document.getElementById('submit_btn');
+    submit.onclick = function () {
+        var request = new XMLHttpRequest();
+        request.onreadystatechange = function () {
+          if (request.readyState === XMLHttpRequest.DONE) {
+              if (request.status === 200) {
+                  alert('Respond Submit Successfully');
+              } else {
+                  alert('Respond Could ! Submit');
+              }
+          }
+        };
+        var like = false;
+        var name = document.getElementById('name').value;
+        var email = document.getElementById('email').value;
+        var subject = document.getElementById('subject').value;
+        var like = document.getElementById('like').value;
+        console.log(name);
+        console.log(email);
+        console.log(subject);
+        console.log(like);
+        request.open('POST', 'http://sarvesh18.imad.hasura-app.io/submit', true);
+        request.setRequestHeader('Content-Type', 'application/json');
+        request.send(JSON.stringify({"name": name, "email": email, "subject": subject, "like": like}));  
+    };
+////////////////////////////////////////////////////////////////////////////////
+ 
  function loadLoginForm () {
     var loginHtml = `
         <h3>Login/Register to unlock awesome features</h3>
@@ -134,42 +162,6 @@ loadArticles();
     request.open('GET', '/get-articles', true);
     request.send(null);
 }
-    
-    var add = document.getElementById('add_btn');
-    add.onclick = function () {
-        // Create a request object
-        var request = new XMLHttpRequest();
-        
-        // Capture the response and store it in a variable
-        request.onreadystatechange = function () {
-          if (request.readyState === XMLHttpRequest.DONE) {
-              // Take some action
-              if (request.status === 200) {
-                  alert('User Added Successfully');
-                  //add.value = 'Add!';
-              } else {
-                  alert('Could ! Add');
-                  //add.value = 'Add';
-              }
-          }
-        };
-        
-        // Make the request
-        var likeA = false;
-        var usernameA = document.getElementById('nameA').value;
-        var emailA = document.getElementById('emailA').value;
-        var subjectA = document.getElementById('subjectA').value;
-        var likeA = document.getElementById('likeA').value;
-        console.log(nameA);
-        console.log(emailA);
-        console.log(subjectA);
-        console.log(likeA);
-        request.open('POST', 'http://sarvesh18.imad.hasura-app.io/add', true);
-        request.setRequestHeader('Content-Type', 'application/json');
-        request.send(JSON.stringify({name: nameA, email: emailA, subject: subjectA, like: likeA}));  
-        //add.value = 'Adding...';
-    
-    };
 ////////////////////////////////////////////////////////////////////////////////
     var submit = document.getElementById('submit_btn');
     submit.onclick = function () {
