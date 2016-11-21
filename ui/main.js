@@ -65,10 +65,17 @@
               if (request.status === 200) {
                   alert('Respond Submit Successfully');
                   submit.value = 'Added';
-              } else {
-                  alert('Respond Could ! Submit');
-                  submit.value = '! Added';
+            //  } else {
+             //     alert('Respond Could ! Submit');
+               //   submit.value = '! Added';
               }
+              else if (request.status === 403) {
+                  alert('Invalid Credentials! Try Again!');
+                  //login.value = 'Try Again';
+              } else if (request.status === 500) {
+                  alert('Something wen Wrong!!!');
+                  //login.value = 'Login';
+              } 
           }
         };
         var like = false;
