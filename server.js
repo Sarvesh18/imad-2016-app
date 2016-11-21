@@ -40,6 +40,8 @@ app.get('/hash/:input', function (req, res) {
     res.send(hashedString);
 });
 
+var pool = new Pool(config);
+
 //Post Request
 app.post('/submit', function (req, res) {
     var name = req.body.name;
@@ -55,8 +57,6 @@ app.post('/submit', function (req, res) {
     } 
    });
 });
-
-var pool = new Pool(config);
 
 //Post Request
 app.post('/signup', function (req, res) {
@@ -118,30 +118,14 @@ app.get('/check-login', function (req, res) {
    } 
    else {
 	 //  res.send('You are ! logged In');
-       res.status(400).send('You are not logged in');
+       res.status(400).send('You are ! logged in');
    }
 });
 
 app.get('/logout', function (req, res) {
-
 	delete req.session.auth;       
-
 	res.send('<html><body>Logged out!<br/><br/><a href="/">Back to home</a></body></html>');
 
-});
-
-app.get('/test-db', function (req, res) {
-
-	//make a select request
-        //return a response with the results
-	pool.query('SELECT * FROM test',function(err, result) {
-         if(err) {
-          res.status(500).send(err.toString());
-         } else {
-          res.send(JSON.stringify(result));
-          res.send(JSON.stringify(result.rows));//Only Rows
-         }
-	});
 });
 
 app.get('/ui/style.css', function (req, res) {
