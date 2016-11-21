@@ -47,7 +47,7 @@ app.post('/signup', function (req, res) {
     var emailS = req.body.emailS;
 	var salt = crypto.randomBytes(128).toString('hex');       
 	var dbString = hash(passwordS, salt);
-    pool.query('INSERT INTO "user" (username, password, email) VALUES ($1, $2, $3)', [usernameS, dbStringS,  emailS], function(err, result) {
+    pool.query('INSERT INTO "user" (username, password, email) VALUES ($1, $2, $3)', [usernameS, dbString,  emailS], function(err, result) {
     if(err) {
         res.status(500).send(err.toString());
     } 
