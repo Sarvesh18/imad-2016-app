@@ -28,7 +28,65 @@
         submit.value = 'Wait...';
     };
 ////////////////////////////////////////////////////////////////////////////////
- function loadLoginForm () {
+    var login = document.getElementById('login_btn');
+    login.onclick = function () {
+        var request = new XMLHttpRequest();
+        request.onreadystatechange = function () {
+          if (request.readyState === XMLHttpRequest.DONE) {
+              if (request.status === 200) {
+                  alert('Logged In Successfully!');
+                  login.value = 'Logged In';
+              } else if (request.status === 403) {
+                  alert('Invalid Credentials! Try Again!');
+                  login.value = 'Try Again';
+              } else if (request.status === 500) {
+                  alert('Something wen Wrong!!!');
+                  login.value = 'Login';
+              } else {
+                  alert('Something wen Wrong!!!');
+                  login.value = 'Login';
+              }
+              //loadLogin();
+          }  
+        };
+        var username = document.getElementById('username').value;
+        var password = document.getElementById('password').value;
+        console.log(username);
+        console.log(password);
+        request.open('POST', 'http://sarvesh18.imad.hasura-app.io/login', true);
+        request.setRequestHeader('Content-Type', 'application/json');
+        request.send(JSON.stringify({"username": username, "password": password}));  
+        login.value = 'Logging In...';
+        
+    };
+////////////////////////////////////////////////////////////////////////////////
+    var signup = document.getElementById('signup_btn');
+    signup.onclick = function () {
+        var request = new XMLHttpRequest();
+        request.onreadystatechange = function () {
+          if (request.readyState === XMLHttpRequest.DONE) {
+              if (request.status === 200) {
+                  alert('User Register Successfully!');
+                  signup.value = 'Registered';
+              } else {
+                  alert('User Could ! Register');
+                  signup.value = 'Signup';
+              }
+          }
+        };
+        var usernameS = document.getElementById('usernameS').value;
+        var passwordS = document.getElementById('passwordS').value;
+        var emailS = document.getElementById('emailS').value;
+        console.log(usernameS);
+        console.log(passwordS);
+        console.log(emailS);
+        request.open('POST', 'http://sarvesh18.imad.hasura-app.io/signup', true);
+        request.setRequestHeader('Content-Type', 'application/json');
+        request.send(JSON.stringify({"usernameS": usernameS, "password": passwordS}));  
+        signup.value = 'Registering...';
+    };
+////////////////////////////////////////////////////////////////////////////////
+ /* function loadLoginForm () {
     var loginHtml = `
         <h3>Login/Register to unlock awesome features</h3>
         <input type="text" id="username" placeholder="username" />
@@ -38,7 +96,7 @@
         <input type="submit" id="register_btn" value="Register" />
         `;
     document.getElementById('login_area').innerHTML = loginHtml;
-    
+   
     // Submit username/password to login
     var login = document.getElementById('login_btn');
     login.onclick = function () {
@@ -73,39 +131,7 @@
         request.send(JSON.stringify({"username": username, "password": password}));  
         login.value = 'Logging in...';
     };
-    
-    var register = document.getElementById('signup_btn');
-    register.onclick = function () {
-        // Create a request object
-        var request = new XMLHttpRequest();
-        
-        // Capture the response and store it in a variable
-        request.onreadystatechange = function () {
-          if (request.readyState === XMLHttpRequest.DONE) {
-              // Take some action
-              if (request.status === 200) {
-                  alert('User created successfully');
-                  register.value = 'Registered!';
-              } else {
-                  alert('Could not register the user');
-                  register.value = 'Register';
-              }
-          }
-        };
-        
-        // Make the request
-        var usernameL = document.getElementById('usernameS').value;
-        var passwordL = document.getElementById('passwordS').value;
-        var emailL = document.getElementById('emailS').value;
-        console.log(usernameS);
-        console.log(passwordS);
-        console.log(emailS);
-        request.open('POST', 'http://sarvesh18.imad.hasura-app.io/signup', true);
-        request.setRequestHeader('Content-Type', 'application/json');
-        request.send(JSON.stringify({"usernameS": usernameS, "passwordS": passwordS, "emailS": emailS}));  
-        register.value = 'Registering...';
-    };
-}
+    */
 
 function loadLoggedInUser (username) {
     var loginArea = document.getElementById('login_area');
@@ -133,6 +159,7 @@ function loadLogin () {
 
 // The first thing to do is to check if the user is logged in!
 loadLogin();
+
 /*
 // Now this is something that we could have directly done on the server-side using templating too!
 loadArticles();
@@ -160,76 +187,4 @@ loadArticles();
     
     request.open('GET', '/get-articles', true);
     request.send(null);
-}
-////////////////////////////////////////////////////////////////////////////////
-    var submit = document.getElementById('submit_btn');
-    submit.onclick = function () {
-        // Create a request object
-        var request = new XMLHttpRequest();
-        
-        // Capture the response and store it in a variable
-        request.onreadystatechange = function () {
-          if (request.readyState === XMLHttpRequest.DONE) {
-              // Take some action
-              if (request.status === 200) {
-                  alert('Logged In Successfully!');
-                  //submit.value = 'Logged In Successfully!';
-              } else if (request.status === 403) {
-                  alert('Invalid Credentials! Try Again!');
-                  //submit.value = 'Invalid Credentials! Try Again!';
-              } else if (request.status === 500) {
-                  alert('Something wen Wrong!!!');
-                  //submit.value = 'Login';
-              } else {
-                  alert('Something wen Wrong!!!');
-                  //submit.value = 'Login';
-              }
-              //loadLogin();
-          }  
-        };
-        
-        // Make the request
-        var username = document.getElementById('usernameS').value;
-        var password = document.getElementById('passwordS').value;
-        console.log(usernameS);
-        console.log(passwordS);
-        request.open('POST', 'http://sarvesh18.imad.hasura-app.io/login', true);
-        request.setRequestHeader('Content-Type', 'application/json');
-        request.send(JSON.stringify({username: usernameS, password: passwordS}));  
-        //submit.value = 'Logging in...';
-        
-    };
-////////////////////////////////////////////////////////////////////////////////    
-    var register = document.getElementById('register_btn');
-    register.onclick = function () {
-        // Create a request object
-        var request = new XMLHttpRequest();
-        
-        // Capture the response and store it in a variable
-        request.onreadystatechange = function () {
-          if (request.readyState === XMLHttpRequest.DONE) {
-              // Take some action
-              if (request.status === 200) {
-                  alert('User Register Successfully');
-                  //register.value = 'Registered!';
-              } else {
-                  alert('Could ! Register');
-                  //register.value = 'Register';
-              }
-          }
-        };
-        
-        // Make the request
-        var username = document.getElementById('usernameR').value;
-        var password = document.getElementById('passwordR').value;
-        var email = document.getElementById('emailR').value;
-        console.log(usernameR);
-        console.log(passwordR);
-        console.log(emailR);
-        request.open('POST', 'http://sarvesh18.imad.hasura-app.io/signup', true);
-        request.setRequestHeader('Content-Type', 'application/json');
-        request.send(JSON.stringify({username: usernameR, password: passwordR}));  
-        //register.value = 'Registering...';
-    
-    };
-	*/
+}*/
