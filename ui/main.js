@@ -1,9 +1,9 @@
  function loadLoginForm () {
     var loginHtml = `
         <h3>Login/Register to unlock awesome features</h3>
-        <input type="text" id="usernameL" placeholder="username" />
-        <input type="password" id="passwordL" />
-        <input type="text" id="emailL" placeholder="emailL" />
+        <input type="text" id="usernameS" placeholder="username" />
+        <input type="password" id="passwordS" />
+        <input type="text" id="emailS" placeholder="emailL" />
         <br/><br/>
         <input type="submit" id="login_btn" value="Login" />
         <input type="submit" id="register_btn" value="Register" />
@@ -68,15 +68,15 @@
         };
         
         // Make the request
-        var usernameL = document.getElementById('usernameL').value;
-        var passwordL = document.getElementById('passwordL').value;
-        var emailL = document.getElementById('emailL').value;
-        console.log(usernameL);
-        console.log(passwordL);
-        console.log(emailL);
+        var usernameL = document.getElementById('usernameS').value;
+        var passwordL = document.getElementById('passwordS').value;
+        var emailL = document.getElementById('emailS').value;
+        console.log(usernameS);
+        console.log(passwordS);
+        console.log(emailS);
         request.open('POST', 'http://sarvesh18.imad.hasura-app.io/signup', true);
         request.setRequestHeader('Content-Type', 'application/json');
-        request.send(JSON.stringify({"usernameL": usernameL, "passwordL": passwordL, "emailL": emailL}));  
+        request.send(JSON.stringify({"usernameS": usernameS, "passwordS": passwordS, "emailS": emailS}));  
         register.value = 'Registering...';
     };
 }
