@@ -91,7 +91,7 @@ app.post('/submit', function (req, res) {
     var email = req.body.email;
     var subject = req.body.subject;
     var like = req.body.like;
-    pool.query('INSERT INTO "submit" (name, email, subject, like) VALUES ($1, $2, $3, $4)', [name, email, subject, like], function(err, result) {
+    pool.query('INSERT INTO "add" (name, email, subject, like) VALUES ($1, $2, $3, $4)', [name, email, subject, like], function(err, result) {
     if(err) {
         res.status(500).send(err.toString());
     } 
@@ -100,7 +100,6 @@ app.post('/submit', function (req, res) {
     } 
    });
 });
-*/
 
 app.get('/check-login', function (req, res) {
    if (req.session && req.session.auth && req.session.auth.userId) {
