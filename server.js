@@ -59,9 +59,9 @@ app.post('/signup', function (req, res) {
 
 //Post Request
 app.post('/login', function (req, res) {
-    var username = req.body.username;
-    var password = req.body.password;
-    pool.query('SELECT * FROM "user" WHERE username = $1', [username], function(err, result) {
+    var usernameL = req.body.usernameL;
+    var passwordL = req.body.passwordL;
+    pool.query('SELECT * FROM "user" WHERE username = $1', [usernameL], function(err, result) {
     if(err) {
         res.status(500).send(err.toString());
     } 
@@ -70,9 +70,9 @@ app.post('/login', function (req, res) {
             res.send(403).send('Username/Password is Invalid');
         }
         else {
-           var dbString = result.rows[0].password;
+           var dbString = result.rows[0].passwordL;
            var salt = dbString.split('$')[2];
-           var hashedPassword  = hash(password, salt);
+           var hashedPassword  = hash(passwordL, salt);
            if(hashedPassword == dbString) {
             req.session.auth = {userId: result.rows[0].id};
             res.send('Credentials Correct!');
