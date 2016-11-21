@@ -44,7 +44,7 @@ app.post('/signup', function (req, res) {
     var username = req.body.username;
     var password = req.body.password;
 	var salt = crypto.randomBytes(128).toString('hex');       
-	var dbString = hash(passwordR, salt);
+	var dbString = hash(password, salt);
     pool.query('INSERT INTO "user" (username, password) VALUES ($1, $2)', [username, dbString], function(err, result) {
     if(err) {
         res.status(500).send(err.toString());
@@ -53,18 +53,6 @@ app.post('/signup', function (req, res) {
         res.send('User Successfully Created:'+username);
     } 
   });
-});
-
-app.get('/:test-db', function (req, res) {
-
-    var name = "sar"; 
-	pool.query('INSERT INTO "test" (name) VALUES ($1)', [name], function(err, result) {
-         if(err) {
-          res.status(500).send(err.toString());
-         } else {
-          res.send('User Successfully Created:'+name);
-         }
-	});
 });
 
 //Post Request
