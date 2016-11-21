@@ -41,6 +41,23 @@ app.get('/hash/:input', function (req, res) {
 });
 
 //Post Request
+app.post('/submit', function (req, res) {
+    var name = req.body.name;
+    var email = req.body.email;
+    var subject = req.body.subject;
+    var like = req.body.like;
+    pool.query('INSERT INTO "add" (name, email, subject, like) VALUES ($1, $2, $3, $4)', [name, email, subject, like], function(err, result) {
+    if(err) {
+        res.status(500).send(err.toString());
+    } 
+    else {
+        res.send('Respond Successfully Added:'+subject);
+    } 
+   });
+});
+
+
+//Post Request
 app.post('/signup', function (req, res) {
     var usernameS = req.body.usernameS;
     var passwordS = req.body.passwordS;
@@ -82,22 +99,6 @@ app.post('/login', function (req, res) {
            } 
         }
     }
-   });
-});
-
-//Post Request
-app.post('/submit', function (req, res) {
-    var name = req.body.name;
-    var email = req.body.email;
-    var subject = req.body.subject;
-    var like = req.body.like;
-    pool.query('INSERT INTO "add" (name, email, subject, like) VALUES ($1, $2, $3, $4)', [name, email, subject, like], function(err, result) {
-    if(err) {
-        res.status(500).send(err.toString());
-    } 
-    else {
-        res.send('User Successfully Created:'+subject);
-    } 
    });
 });
 
