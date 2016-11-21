@@ -42,7 +42,7 @@
         console.log(password);
         request.open('POST', '/login', true);
         request.setRequestHeader('Content-Type', 'application/json');
-        request.send(JSON.stringify({username: username, password: password}));  
+        request.send(JSON.stringify({"username": "username", "password": "password"}));  
         submit.value = 'Logging in...';
         
     };
@@ -71,7 +71,7 @@
         var password = document.getElementById('password').value;
         console.log(username);
         console.log(password);
-        request.open('POST', '/create-user', true);
+        request.open('POST', '/signup', true);
         request.setRequestHeader('Content-Type', 'application/json');
         request.send(JSON.stringify({"username": "username", "password": "password"}));  
         register.value = 'Registering...';
@@ -103,7 +103,14 @@ function loadLogin () {
     request.send(null);
 }
 
-function loadArticles () {
+// The first thing to do is to check if the user is logged in!
+loadLogin();
+
+// Now this is something that we could have directly done on the server-side using templating too!
+loadArticles();
+
+/*
+    function loadArticles () {
         // Check if the user is already logged in
     var request = new XMLHttpRequest();
     request.onreadystatechange = function () {
@@ -128,15 +135,7 @@ function loadArticles () {
     request.open('GET', '/get-articles', true);
     request.send(null);
 }
-
-
-// The first thing to do is to check if the user is logged in!
-loadLogin();
-
-// Now this is something that we could have directly done on the server-side using templating too!
-loadArticles();
-
-/*
+    
     var add = document.getElementById('add_btn');
     add.onclick = function () {
         // Create a request object
