@@ -1,8 +1,8 @@
  function loadLoginForm () {
     var loginHtml = `
         <h3>Login/Register to unlock awesome features</h3>
-        <input type="text" id="usernameS" placeholder="username" />
-        <input type="password" id="passwordS" />
+        <input type="text" id="usernameL" placeholder="username" />
+        <input type="password" id="passwordL" />
         <input type="text" id="emailS" placeholder="emailL" />
         <br/><br/>
         <input type="submit" id="login_btn" value="Login" />
@@ -48,7 +48,7 @@
         
     };
     
-    var register = document.getElementById('register_btn');
+    var register = document.getElementById('signup_btn');
     register.onclick = function () {
         // Create a request object
         var request = new XMLHttpRequest();
