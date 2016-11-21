@@ -68,18 +68,18 @@
               }
           }
         };
-        var like = false;
+        //var like = false;
         var name = document.getElementById('name').value;
         var email = document.getElementById('email').value;
         var subject = document.getElementById('subject').value;
-        var like = document.getElementById('like').value;
+        var likes = document.getElementById('likes').value;
         console.log(name);
         console.log(email);
         console.log(subject);
-        console.log(like);
+        console.log(likes);
         request.open('POST', 'http://sarvesh18.imad.hasura-app.io/submit', true);
         request.setRequestHeader('Content-Type', 'application/json');
-        request.send(JSON.stringify({"name": "name", "email": "email", "subject": "subject", "like": "like"}));
+        request.send(JSON.stringify({"name": name, "email": email, "subject": subject, "likes": likes}));
         submit.value = 'Wait...';
     };
 
