@@ -39,7 +39,7 @@ app.get('/hash/:input', function (req, res) {
 
 });
 
-app.post('/create-user', function (req, res) {
+app.post('/signup', function (req, res) {
    var username = req.body.username;
    var password = req.body.password;
    var salt = crypto.randomBytes(128).toString('hex');
@@ -86,7 +86,7 @@ app.post('/add', function (req, res) {
     } 
    });
 });
-
+*/
 //Post Request
 app.post('/login', function (req, res) {
     var username = req.body.username;
@@ -114,7 +114,6 @@ app.post('/login', function (req, res) {
     }
    });
 });
-*/
 
 app.get('/check-login', function (req, res) {
    if (req.session && req.session.auth && req.session.auth.userId) {
