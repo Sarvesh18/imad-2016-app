@@ -105,11 +105,9 @@ function loadLogin () {
 
 // The first thing to do is to check if the user is logged in!
 loadLogin();
-
+/*
 // Now this is something that we could have directly done on the server-side using templating too!
 loadArticles();
-
-/*
     function loadArticles () {
         // Check if the user is already logged in
     var request = new XMLHttpRequest();
