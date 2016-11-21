@@ -84,19 +84,19 @@ app.post('/login', function (req, res) {
     }
    });
 });
-/*
+
 //Post Request
-app.post('/add', function (req, res) {
-    var nameA = req.body.nameA;
-    var emailA = req.body.emailA;
-    var subjectA = req.body.subjectA;
-    var likeA = req.body.likeA;
-    pool.query('INSERT INTO "add" (name, email, subject, like) VALUES ($1, $2, $3, $4)', [nameA, emailA, subjectA, likeA], function(err, result) {
+app.post('/submit', function (req, res) {
+    var name = req.body.name;
+    var email = req.body.email;
+    var subject = req.body.subject;
+    var like = req.body.like;
+    pool.query('INSERT INTO "submit" (name, email, subject, like) VALUES ($1, $2, $3, $4)', [name, email, subject, like], function(err, result) {
     if(err) {
         res.status(500).send(err.toString());
     } 
     else {
-        res.send('User Successfully Created:'+subjectA);
+        res.send('User Successfully Created:'+subject);
     } 
    });
 });
