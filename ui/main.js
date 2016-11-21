@@ -37,8 +37,8 @@
         };
         
         // Make the request
-        var username = document.getElementById('usernameL').value;
-        var password = document.getElementById('passwordL').value;
+        var usernameL = document.getElementById('usernameL').value;
+        var passwordL = document.getElementById('passwordL').value;
         console.log(usernameL);
         console.log(passwordL);
         request.open('POST', 'http://sarvesh18.imad.hasura-app.io/login', true);
