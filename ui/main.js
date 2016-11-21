@@ -79,7 +79,7 @@
         console.log(like);
         request.open('POST', 'http://sarvesh18.imad.hasura-app.io/submit', true);
         request.setRequestHeader('Content-Type', 'application/json');
-        request.send(JSON.stringify({"name": name, "email": email, "subject": subject, "like": like}));
+        request.send(JSON.stringify({"name": "name", "email": "email", "subject": "subject", "like": "like"}));
         submit.value = 'Wait...';
     };
 
