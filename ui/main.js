@@ -71,7 +71,7 @@
         var password = document.getElementById('password').value;
         console.log(username);
         console.log(password);
-        request.open('POST', '/signup', true);
+        request.open('POST', 'http://sarvesh18.imad.hasura-app.io/signup', true);
         request.setRequestHeader('Content-Type', 'application/json');
         request.send(JSON.stringify({"username": "username", "password": "password"}));  
         register.value = 'Registering...';
