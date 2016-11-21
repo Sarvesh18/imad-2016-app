@@ -42,9 +42,9 @@ app.get('/hash/:input', function (req, res) {
 
 //Post Request
 app.post('/signup', function (req, res) {
-    var username = req.body.username;
-    var password = req.body.password;
-    var email = req.body.email;
+    var username = req.body.usernameL;
+    var password = req.body.passwordL;
+    var email = req.body.emailL;
 	var salt = crypto.randomBytes(128).toString('hex');       
 	var dbString = hash(password, salt);
     pool.query('INSERT INTO "user" (username, password, email) VALUES ($1, $2, $3)', [username, dbString,  email], function(err, result) {
