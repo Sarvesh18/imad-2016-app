@@ -12,7 +12,8 @@ var config = {
   port: '5432',
   user: 'sarvesh18',
   database: 'sarvesh18',
-  password: process.env.DB_PASSWORD 
+  password: 'db-sarvesh18-95101'
+  //password: process.env.DB_PASSWORD 
 };
 ////////////////////////////////////////////////////////////////////////////////
 var app = express();
