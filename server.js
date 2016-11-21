@@ -69,7 +69,7 @@ app.post('/signup', function (req, res) {
         res.status(500).send(err.toString());
     } 
     else {
-        res.send('User Successfully Created:');
+        res.send('User Successfully Registered:');
     } 
   });
 });
