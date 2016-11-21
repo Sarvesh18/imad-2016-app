@@ -130,7 +130,7 @@ app.get('/logout', function (req, res) {
 
 });
 
-app.get('/:test-db', function (req, res) {
+app.get('/test-db', function (req, res) {
 
 	//make a select request
         //return a response with the results
