@@ -51,7 +51,7 @@ app.post('/submit', function (req, res) {
         res.status(500).send(err.toString());
     } 
     else {
-        res.send('Respond Successfully Added:'+subject);
+        res.send('Respond Successfully Added:');
     } 
    });
 });
@@ -69,7 +69,7 @@ app.post('/signup', function (req, res) {
         res.status(500).send(err.toString());
     } 
     else {
-        res.send('User Successfully Created:'+usernameS);
+        res.send('User Successfully Created:');
     } 
   });
 });
