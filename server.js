@@ -14,6 +14,7 @@ var config = {
   port: '5432', //password: 'db-sarvesh18-95101',
   password: process.env.DB_PASSWORD //Environment Variable
 };
+var pool = new Pool(config);
 ////////////////////////////////////////////////////////////////////////////////
 var app = express();
 app.use(morgan('combined'));
@@ -28,7 +29,6 @@ app.get('/', function (req, res) {
   res.sendFile(path.join(__dirname, 'ui', 'index.html'));
 });
 ////////////////////////////////////////////////////////////////////////////////
-var pool = new Pool(config);
 
 function hash(input, salt) {
     var hashed = crypto.pbkdf2Sync(input, salt, 10000, 512, 'sha512');
