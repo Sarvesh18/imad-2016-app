@@ -30,6 +30,7 @@
             var name = `<marquee><p>Hey, `username` Welcome Notification 4 U.</p></marquee>`;
             document.getElementById('myNote').innerHTML = name;
         }
+    };
 ////////////////////////////////////////////////////////////////////////////////
     var signup = document.getElementById('signup_btn');
     signup.onclick = function () {
