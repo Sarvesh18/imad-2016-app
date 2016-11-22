@@ -6,6 +6,11 @@
           if (request.readyState === XMLHttpRequest.DONE) {
               if (request.status === 200) {
                   login.value = 'Logged In';
+                    function () {
+                        var name = `<marquee><p>Hey, Welcome`username` Notification 4 U.</p></marquee>`;
+                        document.getElementById('myNote').innerHTML = name;
+        }
+    };
               } else if (request.status === 403) {
                   login.value = 'Invalid Credentials';
               } else if (request.status === 500) {
@@ -26,8 +31,6 @@
         request.setRequestHeader('Content-Type', 'application/json');
         request.send(JSON.stringify({"username": username, "password": password}));  
         login.value = 'Logging In...';
-        
-    };
 ////////////////////////////////////////////////////////////////////////////////
     var signup = document.getElementById('signup_btn');
     signup.onclick = function () {
@@ -85,7 +88,6 @@
 ////////////////////////////////////////////////////////////////////////////////
 /* function loadLoginForm () {
     var loginHtml = `
-        <h3>Login/Register to unlock awesome features</h3>
         <input type="text" id="username" placeholder="username" />
         <input type="password" id="password" />
         <br/><br/>
