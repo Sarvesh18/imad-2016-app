@@ -6,6 +6,8 @@
           if (request.readyState === XMLHttpRequest.DONE) {
               if (request.status === 200) {
                   login.value = 'Logged In';
+                  var msg =`<h1>Welcome</h1>`+username+`<h1>!!!</h1>`;
+                  document.getElementById('myMsg').innerHTML = msg;
               } else if (request.status === 403) {
                   login.value = 'Invalid Credentials';
               } else if (request.status === 500) {
@@ -90,9 +92,6 @@
         `;
     document.getElementById('login_area').innerHTML = loginHtml;
 */
-
-var msg =`<h1>Welcome</h1>`+s+`<h1>!!!</h1>`;
-document.getElementById('myMsg').innerHTML = msg;
 
 function loadLoggedInUser (username) {
     var loginArea = document.getElementById('login_area');
