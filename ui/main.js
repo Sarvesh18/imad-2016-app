@@ -7,10 +7,9 @@
               if (request.status === 200) {
                   login.value = 'Logged In';
                     function () {
-                        var name = `<marquee><p>Hey, Welcome Notification 4 U.</p></marquee>`;
+                        var name = `<marquee><p>Hey, `username` Welcome Notification 4 U.</p></marquee>`;
                         document.getElementById('myNote').innerHTML = name;
-        }
-    };
+                    }
               } else if (request.status === 403) {
                   login.value = 'Invalid Credentials';
               } else if (request.status === 500) {
