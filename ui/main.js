@@ -91,7 +91,7 @@
     document.getElementById('login_area').innerHTML = loginHtml;
 */
 
-var msg =`<h1>Welcome</h1>`s`<h1>!!!</h1>`;
+var msg =`<h1>Welcome</h1>`+s+`<h1>!!!</h1>`;
 document.getElementById('myMsg').innerHTML = msg;
 
 function loadLoggedInUser (username) {
