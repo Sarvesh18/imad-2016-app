@@ -20,8 +20,8 @@
         };
         var username = document.getElementById('username').value;
         var password = document.getElementById('password').value;
-        console.log(username);
-        console.log(password);
+        //console.log(username);
+        //console.log(password);
         request.open('POST', 'http://sarvesh18.imad.hasura-app.io/login', true);
         request.setRequestHeader('Content-Type', 'application/json');
         request.send(JSON.stringify({"username": username, "password": password}));  
@@ -44,9 +44,9 @@
         var usernameS = document.getElementById('usernameS').value;
         var passwordS = document.getElementById('passwordS').value;
         var emailS = document.getElementById('emailS').value;
-        console.log(usernameS);
-        console.log(passwordS);
-        console.log(emailS);
+        //console.log(usernameS);
+        //console.log(passwordS);
+        //console.log(emailS);
         request.open('POST', 'http://sarvesh18.imad.hasura-app.io/signup', true);
         request.setRequestHeader('Content-Type', 'application/json');
         request.send(JSON.stringify({"usernameS": usernameS, "passwordS": passwordS, "emailS": emailS}));  
@@ -59,10 +59,8 @@
         request.onreadystatechange = function () {
           if (request.readyState === XMLHttpRequest.DONE) {
               if (request.status === 200) {
-                  alert('Respond Submit Successfully');
                   submit.value = 'Thank You';
                 } else {
-                    alert('Respond Could ! Submit');
                     submit.value = 'Try Again';
               }
           }
@@ -71,10 +69,10 @@
         var email = document.getElementById('email').value;
         var subject = document.getElementById('subject').value;
         var likes = document.getElementById('likes').value;
-        console.log(name);
-        console.log(email);
-        console.log(subject);
-        console.log(likes);
+        //console.log(name);
+        //console.log(email);
+        //console.log(subject);
+        //console.log(likes);
         request.open('POST', 'http://sarvesh18.imad.hasura-app.io/submit', true);
         request.setRequestHeader('Content-Type', 'application/json');
         request.send(JSON.stringify({"name": name, "email": email, "subject": subject, "likes": likes}));
