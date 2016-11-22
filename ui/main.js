@@ -26,10 +26,6 @@
         request.setRequestHeader('Content-Type', 'application/json');
         request.send(JSON.stringify({"username": username, "password": password}));  
         login.value = 'Logging In...';
-                            function () {
-                        var name = `<marquee><p>Hey, Welcome Notification 4 U.</p></marquee>`;
-                        document.getElementById('myNote').innerHTML = name;
-                            }
     };
 ////////////////////////////////////////////////////////////////////////////////
     var signup = document.getElementById('signup_btn');
