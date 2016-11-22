@@ -68,7 +68,7 @@
               }
           }
         };
-        //var like = false;
+        var like = false;
         var name = document.getElementById('name').value;
         var email = document.getElementById('email').value;
         var subject = document.getElementById('subject').value;
