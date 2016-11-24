@@ -5,7 +5,7 @@
         request.onreadystatechange = function () {
           if (request.readyState === XMLHttpRequest.DONE) {
               if (request.status === 200) {
-                  login.value = 'Logged In';
+                  login.value = 'Logout';
                   var msg =`<h1>Welcome `+username+` !!!</h1>`;
                   document.getElementById('myMsg').innerHTML = msg;
               } else if (request.status === 403) {
