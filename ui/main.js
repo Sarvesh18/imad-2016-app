@@ -1,3 +1,9 @@
+function loadLoginForm () {
+    var loginHtml = `
+    <input class="w3-btn-block w3-green w3-section w3-padding" type="submit" value="Logout" id="logout_btn"/>
+    `;
+    document.getElementById('login_btn').innerHTML = loginHtml;
+
 loadLogin();
 function loadLogin () {
     var request = new XMLHttpRequest();
@@ -17,10 +23,10 @@ function loadLoggedInUser (username) {
     //<a href="/logout">Logout</a>`;
     var msg =`<h1>Welcome `+username+` !!!</h1>`;
     document.getElementById('myMsg').innerHTML = msg;
-    //document.getElementById('login_btn').innerHTML = `<input class="w3-btn-block
-    //w3-green w3-section w3-padding" type="submit" value="Logout" id="logout_btn"/>`;
-    document.getElementById("login_btn").style.visibility = 'hidden';
-    document.getElementById("logout_btn").style.visibility = 'visible';
+    
+    loadLoginForm ();
+    //document.getElementById("login_btn").style.visibility = 'hidden';
+    //document.getElementById("logout_btn").style.visibility = 'visible';
 }
 ////////////////////////////////////////////////////////////////////////////////
     var login = document.getElementById('login_btn');
@@ -30,8 +36,8 @@ function loadLoggedInUser (username) {
           if (request.readyState === XMLHttpRequest.DONE) {
               if (request.status === 200) {
                   console.log('Login');
-                  document.getElementById("login_btn").style.visibility = 'hidden';
-                  document.getElementById("logout_btn").style.visibility = 'visible';
+                  //document.getElementById("login_btn").style.visibility = 'hidden';
+                  //document.getElementById("logout_btn").style.visibility = 'visible';
                   var msg =`<h1>Welcome `+username+` !!!</h1>`;
                   document.getElementById('myMsg').innerHTML = msg;
               } else if (request.status === 403) {
@@ -62,8 +68,8 @@ function loadLoggedInUser (username) {
         request.onreadystatechange = function () {
           if (request.readyState === XMLHttpRequest.DONE) {
               if (request.status === 200) {
-                  document.getElementById("logout_btn").style.visibility = 'hidden';
-                  document.getElementById("login_btn").style.visibility = 'visible';
+                  //document.getElementById("logout_btn").style.visibility = 'hidden';
+                  //document.getElementById("login_btn").style.visibility = 'visible';
                   var msg =`<h1>Welcome !!!</h1>`;
                   document.getElementById('myMsg').innerHTML = msg;
               } 
@@ -126,13 +132,3 @@ function loadLoggedInUser (username) {
     };
 
 ////////////////////////////////////////////////////////////////////////////////
-/* function loadLoginForm () {
-    var loginHtml = `
-        <input type="text" id="username" placeholder="username" />
-        <input type="password" id="password" />
-        <br/><br/>
-        <input type="submit" id="login_btn" value="Login" />
-        <input type="submit" id="register_btn" value="Register" />
-        `;
-    document.getElementById('login_area').innerHTML = loginHtml;
-*/
