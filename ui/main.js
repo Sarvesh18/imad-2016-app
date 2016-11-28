@@ -6,7 +6,7 @@
           if (request.readyState === XMLHttpRequest.DONE) {
               if (request.status === 200) {
                   login.value = 'Logout';
-                  //login.id = 'logout_btn';
+                  login.id = 'logout_btn';
                   var msg =`<h1>Welcome `+username+` !!!</h1>`;
                   document.getElementById('myMsg').innerHTML = msg;
               } else if (request.status === 403) {
@@ -31,6 +31,8 @@
         login.value = 'Logging In...';
     };
 ////////////////////////////////////////////////////////////////////////////////
+        var sarvesh = document.getElementById('logout_btn').id;
+        console.log(sarvesh);
 /*    var logout = document.getElementById('logout_btn');
     logout.onclick = function () {
         var request = new XMLHttpRequest();
