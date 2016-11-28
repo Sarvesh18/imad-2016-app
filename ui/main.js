@@ -1,16 +1,11 @@
-// The first thing to do is to check if the user is logged in!
 loadLogin();
 function loadLogin () {
-    // Check if the user is already logged in
     var request = new XMLHttpRequest();
     request.onreadystatechange = function () {
         if (request.readyState === XMLHttpRequest.DONE) {
             if (request.status === 200) {
                 loadLoggedInUser(this.responseText);
             } 
-            else {
-                alert("Something Went Wrong");
-            }
             //else { loadLoginForm(); }
         }
     };
@@ -18,8 +13,8 @@ function loadLogin () {
     request.send(null);
 }
 function loadLoggedInUser (username) {
-    //var msg =`<h1>Welcome `+username+` !!!</h1>`
-    var msg = `<h1> Welcome <i>${username}</i> !!!</h1>
+    var msg =`<h1>Welcome `+username+` !!!</h1>`
+    //var msg = `<h1> Welcome <i>${username}</i> !!!</h1>
     <a href="/logout">Logout</a>`;
     document.getElementById('myMsg').innerHTML = msg;
     var loginArea = document.getElementById('login_area');
