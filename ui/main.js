@@ -29,7 +29,7 @@ function loadLoggedInUser (username) {
               if (request.status === 200) {
                   //login.value = 'Logout';
                   console.log('Login');
-                  document.getElementById('login_btn').innerHTML = `<input class="w3-btn-block 
+                  login.innerHTML = `<input class="w3-btn-block 
                   w3-green w3-section w3-padding" type="submit" value="Logout" id="logout_btn"/>`;
                   var msg =`<h1>Welcome `+username+` !!!</h1>`;
                   document.getElementById('myMsg').innerHTML = msg;
