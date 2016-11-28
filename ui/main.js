@@ -10,7 +10,7 @@ function loadLogin () {
         }
     };
     request.open('GET', 'http://sarvesh18.imad.hasura-app.io/check-login', true);
-    request.send(null);
+    request.send();
 }
 function loadLoggedInUser (username) {
     var msg =`<h1>Welcome `+username+` !!!</h1>`
