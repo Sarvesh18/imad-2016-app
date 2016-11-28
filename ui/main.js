@@ -15,7 +15,7 @@ function loadLogin () {
 function loadLoggedInUser (username) {
     var msg =`<h1>Welcome `+username+` !!!</h1>`
     //var msg = `<h1> Welcome <i>${username}</i> !!!</h1>
-    <a href="/logout">Logout</a>`;
+    //<a href="/logout">Logout</a>`;
     document.getElementById('myMsg').innerHTML = msg;
     var loginArea = document.getElementById('login_area');
 }
