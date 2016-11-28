@@ -27,10 +27,9 @@ function loadLoggedInUser (username) {
         request.onreadystatechange = function () {
           if (request.readyState === XMLHttpRequest.DONE) {
               if (request.status === 200) {
-                  //login.value = 'Logout';
                   console.log('Login');
-                  document.getElementById("log").style.visibility = 'hidden';
-                  document.getElementById("water").style.visibility = 'visible';
+                  document.getElementById("login_btn").style.visibility = 'hidden';
+                  document.getElementById("logout_btn").style.visibility = 'visible';
                   var msg =`<h1>Welcome `+username+` !!!</h1>`;
                   document.getElementById('myMsg').innerHTML = msg;
               } else if (request.status === 403) {
@@ -61,7 +60,8 @@ function loadLoggedInUser (username) {
         request.onreadystatechange = function () {
           if (request.readyState === XMLHttpRequest.DONE) {
               if (request.status === 200) {
-
+                  document.getElementById("logout_btn").style.visibility = 'hidden';
+                  document.getElementById("login_btn").style.visibility = 'visible';
                   var msg =`<h1>Welcome !!!</h1>`;
                   document.getElementById('myMsg').innerHTML = msg;
               } 
