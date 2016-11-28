@@ -130,5 +130,3 @@ function loadLoggedInUser (username) {
         request.send(JSON.stringify({"name": name, "email": email, "subject": subject, "likes": likes}));
         submit.value = 'Wait...';
     };
-
-////////////////////////////////////////////////////////////////////////////////
