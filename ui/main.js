@@ -6,7 +6,6 @@
           if (request.readyState === XMLHttpRequest.DONE) {
               if (request.status === 200) {
                   login.value = 'Logout';
-                  login.id = 'logout_btn';
                   var msg =`<h1>Welcome `+username+` !!!</h1>`;
                   document.getElementById('myMsg').innerHTML = msg;
               } else if (request.status === 403) {
@@ -18,7 +17,7 @@
                   //alert('Something wen Wrong!!!');
                   login.value = 'Login';
               }
-              //loadLogin();
+              loadLogin();
           }  
         };
         var username = document.getElementById('username').value;
@@ -119,11 +118,11 @@
 */
 
 function loadLoggedInUser (username) {
+    //var msg =`<h1>Welcome `+username+` !!!</h1>`
+    var msg = `<h1> Welcome <i>${username}</i> !!!</h1>
+    <a href="/logout">Logout</a>`;
+    document.getElementById('myMsg').innerHTML = msg;
     var loginArea = document.getElementById('login_area');
-    loginArea.innerHTML = `
-        <h3> Hi <i>${username}</i></h3>
-        <a href="/logout">Logout</a>
-    `;
 }
 
 function loadLogin () {
@@ -133,9 +132,8 @@ function loadLogin () {
         if (request.readyState === XMLHttpRequest.DONE) {
             if (request.status === 200) {
                 loadLoggedInUser(this.responseText);
-            } else {
-                //loadLoginForm();
-            }
+            } 
+            //else { loadLoginForm(); }
         }
     };
     request.open('GET', '/check-login', true);
@@ -143,4 +141,4 @@ function loadLogin () {
 }
 
 // The first thing to do is to check if the user is logged in!
-//loadLogin();
+loadLogin();
