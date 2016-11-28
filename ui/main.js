@@ -17,6 +17,9 @@ function loadLoggedInUser (username) {
     //var msg = `<h1> Welcome <i>${username}</i> !!!</h1>
     //<a href="/logout">Logout</a>`;
     document.getElementById('myMsg').innerHTML = msg;
+    var logout = `<input class="w3-btn-block w3-green w3-section 
+    w3-padding" type="submit" value="Logout" id="logout_btn"/>`;
+    document.getElementById('login_btn').innerHTML = logout;
 }
 ////////////////////////////////////////////////////////////////////////////////
     var login = document.getElementById('login_btn');
@@ -25,7 +28,7 @@ function loadLoggedInUser (username) {
         request.onreadystatechange = function () {
           if (request.readyState === XMLHttpRequest.DONE) {
               if (request.status === 200) {
-                  login.value = 'logout';
+                  login.value = 'Logout';
                   var logout = `<input class="w3-btn-block w3-green w3-section 
                   w3-padding" type="submit" value="Logout" id="logout_btn"/>`;
                   document.getElementById('login_btn').innerHTML = logout;
