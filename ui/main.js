@@ -25,7 +25,7 @@ function loadLoggedInUser (username) {
         request.onreadystatechange = function () {
           if (request.readyState === XMLHttpRequest.DONE) {
               if (request.status === 200) {
-                  login.value = logout;
+                  login.value = 'logout';
                   var logout = `<input class="w3-btn-block w3-green w3-section 
                   w3-padding" type="submit" value="Logout" id="logout_btn"/>`;
                   document.getElementById('login_btn').innerHTML = logout;
