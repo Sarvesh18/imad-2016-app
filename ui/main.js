@@ -27,7 +27,6 @@ function loadLoggedInUser (username) {
         request.onreadystatechange = function () {
           if (request.readyState === XMLHttpRequest.DONE) {
               if (request.status === 200) {
-                  console.log('Login');
                   document.getElementById("login_btn").style.visibility = 'hidden';
                   document.getElementById("logout_btn").style.visibility = 'visible';
                   var msg =`<h1>Welcome `+username+` !!!</h1>`;
