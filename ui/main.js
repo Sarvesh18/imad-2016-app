@@ -17,9 +17,8 @@ function loadLoggedInUser (username) {
     //var msg = `<h1> Welcome <i>${username}</i> !!!</h1>
     //<a href="/logout">Logout</a>`;
     document.getElementById('myMsg').innerHTML = msg;
-    var logout = `<input class="w3-btn-block w3-green w3-section 
-    w3-padding" type="submit" value="Logout" id="logout_btn"/>`;
-    document.getElementById('login_btn').innerHTML = logout;
+    document.getElementById('login_btn').innerHTML = `<input class="w3-btn-block
+    w3-green w3-section w3-padding" type="submit" value="Logout" id="logout_btn"/>`;
 }
 ////////////////////////////////////////////////////////////////////////////////
     var login = document.getElementById('login_btn');
@@ -28,10 +27,9 @@ function loadLoggedInUser (username) {
         request.onreadystatechange = function () {
           if (request.readyState === XMLHttpRequest.DONE) {
               if (request.status === 200) {
-                  login.value = 'Logout';
-                  var logout = `<input class="w3-btn-block w3-green w3-section 
-                  w3-padding" type="submit" value="Logout" id="logout_btn"/>`;
-                  document.getElementById('login_btn').innerHTML = logout;
+                  //login.value = 'Logout';
+                  document.getElementById('login_btn').innerHTML = `<input class="w3-btn-block 
+                  w3-green w3-section w3-padding" type="submit" value="Logout" id="logout_btn"/>`;
                   var msg =`<h1>Welcome `+username+` !!!</h1>`;
                   document.getElementById('myMsg').innerHTML = msg;
               } else if (request.status === 403) {
@@ -62,9 +60,8 @@ function loadLoggedInUser (username) {
         request.onreadystatechange = function () {
           if (request.readyState === XMLHttpRequest.DONE) {
               if (request.status === 200) {
-                  var login = `<input class="w3-btn-block w3-green w3-section 
-                  w3-padding" type="submit" value="Login" id="login_btn"/>`;
-                  document.getElementById('logout_btn').innerHTML = login;
+                  document.getElementById('logout_btn').innerHTML = `<input class="w3-btn-block 
+                  w3-green w3-section w3-padding" type="submit" value="Login" id="login_btn"/>`;
                   var msg =`<h1>Welcome !!!</h1>`;
                   document.getElementById('myMsg').innerHTML = msg;
               } 
