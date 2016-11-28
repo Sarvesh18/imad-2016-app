@@ -6,6 +6,7 @@
           if (request.readyState === XMLHttpRequest.DONE) {
               if (request.status === 200) {
                   login.value = 'Logout';
+                  login.id = 'logout_btn';
                   var msg =`<h1>Welcome `+username+` !!!</h1>`;
                   document.getElementById('myMsg').innerHTML = msg;
               } else if (request.status === 403) {
@@ -28,6 +29,29 @@
         request.setRequestHeader('Content-Type', 'application/json');
         request.send(JSON.stringify({"username": username, "password": password}));  
         login.value = 'Logging In...';
+    };
+////////////////////////////////////////////////////////////////////////////////
+    var logout = document.getElementById('logout_btn');
+    logout.onclick = function () {
+        var request = new XMLHttpRequest();
+        request.onreadystatechange = function () {
+          if (request.readyState === XMLHttpRequest.DONE) {
+              if (request.status === 200) {
+                  logout.value = 'login';
+                  logout.id = 'login_btn';
+                  var msg =`<h1>Welcome `+username+` !!! Logout</h1>`;
+                  document.getElementById('myMsg').innerHTML = msg;
+              } 
+              else {
+                  //alert('Something wen Wrong!!!');
+                  logout.value = 'Logout';
+              }
+          }  
+        };
+        request.open('GET', 'http://sarvesh18.imad.hasura-app.io/logout', true);
+        request.setRequestHeader('Content-Type', 'application/json');
+        //request.send(JSON.stringify({"username": username, "password": password}));  
+        logout.value = 'Logouting In...';
     };
 ////////////////////////////////////////////////////////////////////////////////
     var signup = document.getElementById('signup_btn');
