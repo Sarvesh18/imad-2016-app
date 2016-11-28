@@ -31,9 +31,7 @@
         login.value = 'Logging In...';
     };
 ////////////////////////////////////////////////////////////////////////////////
-        var sarvesh = document.getElementById('logout_btn').id;
-        console.log(sarvesh);
-/*    var logout = document.getElementById('logout_btn');
+    var logout = document.getElementById('logout_btn');
     logout.onclick = function () {
         var request = new XMLHttpRequest();
         request.onreadystatechange = function () {
@@ -41,7 +39,7 @@
               if (request.status === 200) {
                   logout.value = 'login';
                   logout.id = 'login_btn';
-                  var msg =`<h1>Welcome `+username+` !!! Logout</h1>`;
+                  var msg =`<h1>Welcome!!! Logout</h1>`;
                   document.getElementById('myMsg').innerHTML = msg;
               } 
               else {
@@ -51,10 +49,11 @@
           }  
         };
         request.open('GET', 'http://sarvesh18.imad.hasura-app.io/logout', true);
-        request.setRequestHeader('Content-Type', 'application/json');
+    request.send(null);
+     // request.setRequestHeader('Content-Type', 'application/json');
         //request.send(JSON.stringify({"username": username, "password": password}));  
         logout.value = 'Logouting In...';
-    };*/
+    };
 ////////////////////////////////////////////////////////////////////////////////
     var signup = document.getElementById('signup_btn');
     signup.onclick = function () {
