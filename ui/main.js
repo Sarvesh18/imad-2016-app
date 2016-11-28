@@ -1,3 +1,26 @@
+// The first thing to do is to check if the user is logged in!
+loadLogin();
+function loadLogin () {
+    // Check if the user is already logged in
+    var request = new XMLHttpRequest();
+    request.onreadystatechange = function () {
+        if (request.readyState === XMLHttpRequest.DONE) {
+            if (request.status === 200) {
+                loadLoggedInUser(this.responseText);
+            } 
+            //else { loadLoginForm(); }
+        }
+    };
+    request.open('GET', 'http://sarvesh18.imad.hasura-app.io/check-login', true);
+    request.send(null);
+}
+function loadLoggedInUser (username) {
+    //var msg =`<h1>Welcome `+username+` !!!</h1>`
+    var msg = `<h1> Welcome <i>${username}</i> !!!</h1>
+    <a href="/logout">Logout</a>`;
+    document.getElementById('myMsg').innerHTML = msg;
+    var loginArea = document.getElementById('login_area');
+}
 ////////////////////////////////////////////////////////////////////////////////
     var login = document.getElementById('login_btn');
     login.onclick = function () {
@@ -28,30 +51,6 @@
         request.setRequestHeader('Content-Type', 'application/json');
         request.send(JSON.stringify({"username": username, "password": password}));  
         login.value = 'Logging In...';
-    };
-////////////////////////////////////////////////////////////////////////////////
-    var logout = document.getElementById('logout_btn');
-    logout.onclick = function () {
-        var request = new XMLHttpRequest();
-        request.onreadystatechange = function () {
-          if (request.readyState === XMLHttpRequest.DONE) {
-              if (request.status === 200) {
-                  logout.value = 'login';
-                  logout.id = 'login_btn';
-                  var msg =`<h1>Welcome!!! Logout</h1>`;
-                  document.getElementById('myMsg').innerHTML = msg;
-              } 
-              else {
-                  //alert('Something wen Wrong!!!');
-                  logout.value = 'Logout';
-              }
-          }  
-        };
-        request.open('GET', 'http://sarvesh18.imad.hasura-app.io/logout', true);
-    request.send(null);
-     // request.setRequestHeader('Content-Type', 'application/json');
-        //request.send(JSON.stringify({"username": username, "password": password}));  
-        logout.value = 'Logouting In...';
     };
 ////////////////////////////////////////////////////////////////////////////////
     var signup = document.getElementById('signup_btn');
@@ -116,29 +115,3 @@
         `;
     document.getElementById('login_area').innerHTML = loginHtml;
 */
-
-function loadLoggedInUser (username) {
-    //var msg =`<h1>Welcome `+username+` !!!</h1>`
-    var msg = `<h1> Welcome <i>${username}</i> !!!</h1>
-    <a href="/logout">Logout</a>`;
-    document.getElementById('myMsg').innerHTML = msg;
-    var loginArea = document.getElementById('login_area');
-}
-
-function loadLogin () {
-    // Check if the user is already logged in
-    var request = new XMLHttpRequest();
-    request.onreadystatechange = function () {
-        if (request.readyState === XMLHttpRequest.DONE) {
-            if (request.status === 200) {
-                loadLoggedInUser(this.responseText);
-            } 
-            //else { loadLoginForm(); }
-        }
-    };
-    request.open('GET', '/check-login', true);
-    request.send(null);
-}
-
-// The first thing to do is to check if the user is logged in!
-loadLogin();
