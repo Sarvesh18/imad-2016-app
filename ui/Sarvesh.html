@@ -1,9 +1,346 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>Page Title</title>
+<!------------------------------------------------------------------------------------------------------------------------------------------->
+	<title>sarvesh18.imad.hasura-app.io</title>
+	<link rel="shortcut icon" href="http://www.jumboedusupplies.com/images/favicon.ico">
+<!------------------------------------------------------------------------------------------------------------------------------------------->
+    <meta charset="utf-8">
+    
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+<!-------------------------------------------------------------------------------------------------------------------------------------------> 
+    <!--
+	<link rel="stylesheet" href="/ui/w3.css">
+	<link rel="stylesheet" href="/ui/style.css">
+	-->
+	
+	<link rel="stylesheet" href="http://www.w3schools.com/lib/w3.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css">
+	
+    <style>
+      #googleMap {
+        height: 100%;
+      }
+      html, body {
+        height: 100%;
+        margin: 0;
+        padding: 0;
+      }
+    </style>
+
+	<style>
+		.mySlides {display:none}
+		.w3-left, .w3-right, .w3-badge {cursor:pointer}
+		.w3-badge {height:13px;width:13px;padding:0}
+	</style>
+<!------------------------------------------------------------------------------------------------------------------------------------------->
 </head>
-<body>
+<body id="myBody">
+<!------------------------------------------------------------------------------------------------------------------------------------------->
+	<div class="w3-top">
+		<div class="w3-display-topright">
+			<img src="http://aktu.ac.in/images/logo.png" class="w3-hover-opacity" style="width:60px">
+		</div>
+		<div class="w3-display-topleft">
+			<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRyqLK3WRbtRsBnihUxxmnyLiYUV7a2xzFMdnJX4SBiUI-MbVdKFMkCRqw" class="w3-hover-opacity" style="width:50px">
+		</div>
+	</div>
+<!------------------------------------------------------------------------------------------------------------------------------------------->
+	<div class="w3-container">
+		<ul class="w3-navbar w3-card-2 w3-light-grey w3-margin-top w3-margin-left w3-margin-right">
+			<li><a href="#myHome">Home</a></li>
+			<li class="w3-dropdown-hover"><a href="#myBlog">Blog<i class="fa fa-caret-down"></i></a>
+				<div class="w3-dropdown-content w3-white w3-card-4">
+					<a href="#">Coding</a>
+					<a href="#">Hacking</a>
+				</div>
+			</li>
+			<li><a href="#myForum">Forum</a></li>
+			<li><a href="#myTeam">About Us</a></li>
+			<li><a href="javascript:void(0)" onclick="document.getElementById('id01').style.display='block'">Login</a></li>
+			
+			<li class="w3-dropdown-hover"><a href="#">Contact Us<i class="fa fa-caret-down"></i></a>
+				<div class="w3-dropdown-content w3-white w3-card-4">
+					<a href="#myContact">Detail</a>
+					<a href="#googleMap">Location</a>
+				</div>
+			</li>
+		</ul>
+	</div>
+<!------------------------------------------------------------------------------------------------------------------------------------------->	
+	<div class="w3-panel w3-red w3-hover-opacity">
+		<marquee><p>Hey, Welcome Anonymous! Notification 4 U.</p></marquee>
+	</div>
+<!------------------------------------------------------------------------------------------------------------------------------------------->
+<hr>
+<!------------------------------------------------------------------------------------------------------------------------------------------->
+	<div id="myMsg" class="w3-container w3-center w3-animate-top">
+		<h1>Welcome!!!</h1>
+	</div>
+<!------------------------------------------------------------------------------------------------------------------------------------------->
+<hr>
+<!------------------------------------------------------------------------------------------------------------------------------------------->
+	<div class="w3-content w3-display-container" style="max-width:1200px">
+		<!--(topleft, topmiddle, topright, bottomleft, bottommiddle, bottomright or middle)-->
+		<div class="mySlides"> 
+			<div class="w3-display-topright w3-large w3-container w3-padding-16 w3-black">
+				Photo1
+			</div>
+			<img src="http://www.wallpaperup.com/uploads/wallpapers/2015/01/19/590738/03184d055da164780a30798d345d4cfd.jpg" style="width:100%">
+		</div>
+		<div class="mySlides">
+			<div class="w3-display-topright w3-large w3-container w3-padding-16 w3-black">
+				Photo2
+			</div>
+			<img src="http://cdn.wonderfulengineering.com/wp-content/uploads/2014/04/code-wallpaper.jpg" style="width:100%">
+		</div>
+		<div class="mySlides">
+			<div class="w3-display-topright w3-large w3-container w3-padding-16 w3-black">
+				Photo3
+			</div>
+			<img src="http://2.bp.blogspot.com/-m2wykzNmRqU/Ue7bX3dHZiI/AAAAAAAACKQ/3BK7MRb_U-w/s1600/Programming+while+true+Wallpaper.png" style="width:100%">
+		</div>
+		<div class="w3-center w3-section w3-large w3-text-white w3-display-bottommiddle" style="width:100%">
+		<!--
+		<a class="w3-btn-floating w3-hover-dark-grey w3-display-left" onclick="plusDivs(-1)">&#10094;</a>
+		<a class="w3-btn-floating w3-hover-dark-grey w3-display-right" onclick="plusDivs(1)">&#10095;</a>    
+		-->
+		<div class="w3-left w3-padding-left w3-hover-text-khaki" onclick="plusDivs(-1)">&#10094;</div>
+		<div class="w3-right w3-padding-right w3-hover-text-khaki" onclick="plusDivs(1)">&#10095;</div>
+		<span class="w3-badge demo w3-border w3-transparent w3-hover-white" onclick="currentDiv(1)"></span>
+		<span class="w3-badge demo w3-border w3-transparent w3-hover-white" onclick="currentDiv(2)"></span>
+		<span class="w3-badge demo w3-border w3-transparent w3-hover-white" onclick="currentDiv(3)"></span>
+		</div>
+	</div>
+	
+	<script>
+		var slideIndex = 1;
+		showDivs(slideIndex);
+		function plusDivs(n) {
+			showDivs(slideIndex += n);
+		}
+		function currentDiv(n) {
+			showDivs(slideIndex = n);
+		}
+		function showDivs(n) {
+			//if(n==='' || n==='0' || n==="undefined")
+			// n=1;
+			var i;
+			var x = document.getElementsByClassName("mySlides");
+			var dots = document.getElementsByClassName("demo");
+			if (n > x.length) {slideIndex = 1}
+			if (n < 1) {slideIndex = x.length}
+			for (i = 0; i < x.length; i++) {
+				x[i].style.display = "none";
+			}
+			for (i = 0; i < dots.length; i++) {
+				dots[i].className = dots[i].className.replace(" w3-white", "");
+			}
+			x[slideIndex-1].style.display = "block";
+			dots[slideIndex-1].className += " w3-white";
+			slideIndex++;
+			var t = setTimeout(function(){showDivs(slideIndex) }, 5000);
+		}
+	</script>
+<hr>
+<!------------------------------------------------------------------------------------------------------------------------------------------->
+	<div id="myHome" class="w3-center w3-panel w3-leftbar w3-sand">
+		<p class="w3-xxlarge w3-serif">
+		<i>"Make it as simple as possible, but not simpler."</i></p>
+		<p>Albert Einstein</p>
+	</div>
+<!------------------------------------------------------------------------------------------------------------------------------------------->
+<hr>
+<!------------------------------------------------------------------------------------------------------------------------------------------->	
+	<div  class="w3-center w3-padding-32">
+		<ul class="w3-pagination">
+			<li><a class="w3-black" href="#">1</a></li>
+			<li><a class="w3-hover-black" href="#">2</a></li>
+			<li><a class="w3-hover-black" href="#">3</a></li>
+			<li><a class="w3-hover-black" href="#">>></a></li>
+		</ul>
+	</div>
+<!------------------------------------------------------------------------------------------------------------------------------------------->
+<hr>
+
 <a class="twitter-timeline" href="https://twitter.com/sarvesh_smcs2">Tweets by sarvesh_smcs2</a> <script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
+
+
+ <!--<iframe width="700" height="394" src="https://www.youtube-nocookie.com/embed/xspoREpBOhY?rel=0     https://www.youtube.com/watch?v=xspoREpBOhY" frameborder="0" allowfullscreen></iframe>-->
+
+	<iframe width="700" height="394" src="https://www.youtube-nocookie.com/embed/RguA0jevrAc&index=22&list=PLOerUtUR1hndpnyu1Bno6wVl3v1eRO-2At=PLOerUtUR1hnem0Ct_6whTmFp1wE3oPFgh" frameborder="0" allowfullscreen></iframe>>
+
+
+<hr>
+<!------------------------------------------------------------------------------------------------------------------------------------------->
+	<div class="w3-row w3-container">
+		<div class="w3-row-padding" id="about">
+			<div class="w3-center w3-padding-64">
+			<span class="w3-xlarge w3-bottombar w3-border-dark-grey w3-padding-16">Who We Are</span>
+			</div>
+		</div>
+	</div>
+<hr>   
+	<div id="myTeam" class="w3-container w3-center">
+		<div class="w3-content w3-display-container" style="max-width:1200px">
+		<!--(topleft, topmiddle, topright, bottomleft, bottommiddle, bottomright or middle)-->
+			<div class="w3-display-bottommiddle w3-large w3-container w3-padding-16 w3-black">
+				TEAM MEMBER
+			</div>
+		    <img src="https://scontent-sin6-1.xx.fbcdn.net/v/t1.0-0/p206x206/12143068_995545243830115_3473747547377443836_n.jpg?oh=63066891bfd0fb9cca1018585648172e&oe=58C87A45" class="w3-border w3-padding w3-padding-16" alt="Team" style="width:100%">
+		</div>
+<hr>
+		<div class="w3-container w3-padding-16 w3-center" >
+			<img src="https://scontent-sin6-1.xx.fbcdn.net/v/t1.0-1/c0.0.160.160/p160x160/12234847_969765716430374_199926598983653164_n.jpg?oh=88f7bc8742d52e84d6abbe590b9538a9&oe=58B7A476" alt="Coder" style="width:30%" class="w3-circle w3-hover-opacity">
+			<h3><b>Sarvesh</b></h3>
+			<p>Developer</p>
+		</div>
+	</div>
+<!------------------------------------------------------------------------------------------------------------------------------------------->
+<hr>
+<!------------------------------------------------------------------------------------------------------------------------------------------->
+   	<div class="w3-container w3-center"
+		<p>
+			<button class="w3-btn w3-dark-grey w3-padding-large w3-margin-top w3-margin-bottom">
+				<a href="https://drive.google.com/file/d/0B524wnHXkUOTVHNhWXdTYW4yLVk/view?usp=sharing"><i class="fa fa-download w3-margin-right"></i>Download Resume
+				</a>
+			</button>
+		</p>
+	</div>
+<!------------------------------------------------------------------------------------------------------------------------------------------->
+<hr>
+<!------------------------------------------------------------------------------------------------------------------------------------------->
+	<div class="w3-container w3-padding-64 w3-theme-l5" id="myContact">
+		<div class="w3-row">
+			<div class="w3-col m5">
+				<div class="w3-padding-16"><span class="w3-xlarge w3-border-dark-grey w3-bottombar">Contact Us</span></div>
+					<h3>Address</h3>
+					<p>ABES Engineering College</p>
+					<p><i class="fa fa-map-marker w3-text-teal w3-xlarge"></i>  Ghaziabad</p>
+					<p><i class="fa fa-phone w3-text-teal w3-xlarge"></i>  +919454777897</p>
+					<p><i class="fa fa-envelope-o w3-text-teal w3-xlarge"></i>  sarvesh.singh18@hotmail.com</p>
+				</div>
+			<div class="w3-col m7">
+				<div class="w3-container w3-card-4 w3-padding-16 w3-white">
+					<div class="w3-group">
+						<label class="w3-label">Name</label>
+						<input class="w3-input" type="text" id="name" required/>
+					</div>
+					<div class="w3-group">
+						<label class="w3-label">Email</label>
+						<input class="w3-input" type="text" id="email" required/>
+					</div>
+					<div class="w3-group">
+						<label class="w3-label">Subject</label>
+						<input class="w3-input" type="text" id="subject" required/>
+					</div>
+					<input class="w3-check" type="checkbox" value="true" id="likes" checked/>
+					<label class="w3-validate">I Like it!</label>
+					<input class="w3-btn w3-right w3-theme" type="submit" value="Send" id="add_btn"/>
+				</div>
+			</div>
+		</div>
+	</div>
+<!------------------------------------------------------------------------------------------------------------------------------------------->
+<hr>
+<!------------------------------------------------------------------------------------------------------------------------------------------->
+	<!-- Google Maps -->
+    <div id="googleMap"></div>
+    <script>
+      function initMap() {
+	    var myCenter = new google.maps.LatLng(28.6338, 77.4462);
+        var map = new google.maps.Map(document.getElementById('googleMap'), {
+          zoom: 8,
+          center: myCenter
+        });
+        var marker = new google.maps.Marker({
+          position: myCenter,
+          map: map
+        });
+      }
+    </script>
+	<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAPDoS0P-Vmk1mTquzzDdCS6iAcAJJXWhw&callback=initMap" type="text/javascript"></script>
+	</script>
+<!------------------------------------------------------------------------------------------------------------------------------------------->
+ <hr>
+<!------------------------------------------------------------------------------------------------------------------------------------------->
+	<footer class="w3-container w3-padding-32 w3-light-grey w3-center">
+		<h4>Stay Connected Stay Updated !</h4>
+		<a class="w3-btn-floating w3-teal" href="https://www.facebook.com/sarvesh.singh2" title="Facebook"><i class="fa fa-facebook"></i></a>
+		<a class="w3-btn-floating w3-teal" href="https://twitter.com/sarvesh_smcs2" title="Twitter"><i class="fa fa-twitter"></i></a>
+		<a class="w3-btn-floating w3-teal" href="https://plus.google.com/u/0/104596882454230559505" title="Google +"><i class="fa fa-google-plus"></i></a>
+		<a class="w3-btn-floating w3-teal w3-hide-small" href="https://www.linkedin.com/in/sarvesh18" title="Linkedin"><i class="fa fa-linkedin"></i></a>
+		<p>CopyRight © 2017</p>
+		<p>Develop & Maintained @ <a href="http://technical-spark.blogspot.in/" target="_blank">Sarvesh</a></p>
+		<div style="position:relative;bottom:100px;z-index:1;" class="w3-tooltip w3-right">
+			<span class="w3-text w3-padding w3-teal w3-hide-small">Go To Top</span>
+			<a class="w3-btn w3-light-grey" href="#myBody"><span class="w3-xlarge">
+			<i class="fa fa-chevron-circle-up"></i></span></a>
+		</div>
+	</footer>
+<!-------------------------------------------------------------------------------------------------------------------------------------------> 
+	<div class="w3-container">
+		<div id="id01" class="w3-modal">
+			<div class="w3-modal-content w3-card-8 w3-animate-zoom" style="max-width:600px">
+			<div class="w3-center"><br>
+				<span onclick="document.getElementById('id01').style.display='none'" class="w3-closebtn w3-hover-red w3-container w3-padding-8 w3-display-topright" title="Close Modal">&times;</span>
+				<!-- <img src=" " alt="Icon" style="width:30%" class="w3-circle w3-margin-top"> -->
+			</div>
+        <div class="w3-container  w3-section">
+			<label><b>Username</b></label>
+			<input class="w3-input w3-border w3-margin-bottom" type="text" placeholder="Enter Username" id="username" required/>
+			<label><b>Password</b></label>
+			<input class="w3-input w3-border" type="password" placeholder="Enter Password" id="password" required/>
+			<input class="w3-btn-block w3-green w3-section w3-padding" type="submit" value="Login" id="login_btn"/>
+			<input class="w3-btn-block w3-green w3-section w3-padding" type="submit" value="Logout" id="logout_btn" style="visibility:hidden"/>
+			<input class="w3-check w3-margin-top" type="checkbox" checked="checked"/> Remember me
+        </div>
+		<div class="w3-container w3-border-top w3-padding-16 w3-light-grey">
+			<button onclick="document.getElementById('id02').style.display='block'" type="button" class="w3-btn w3-red">Signup</button>
+			<span class="w3-right w3-padding w3-hide-small">Forgot Password? <!-- <a href="#"> </a> --></span>
+		</div>
+    </div>
+	<div class="w3-container">
+		<div id="id02" class="w3-modal">
+			<div class="w3-modal-content w3-card-8 w3-animate-zoom" style="max-width:600px">
+			<div class="w3-center"><br>
+			<span onclick="document.getElementById('id02').style.display='none'" class="w3-closebtn w3-hover-red w3-container w3-padding-8 w3-display-topright" title="Close Modal">&times;</span>
+			<!-- <img src=" " alt="Icon" style="width:30%" class="w3-circle w3-margin-top"> -->
+		</div>
+        <div class="w3-container w3-section">
+			<label><b>Username</b></label>
+			<input class="w3-input w3-border" type="text" placeholder="Enter Username" id="usernameS" required/>
+			<!-- Ajax -->
+			<label><b>Password</b></label>
+			<input class="w3-input w3-border" type="password" placeholder="Enter Password" id="passwordS" required/>
+			<label><b>Email</b></label>
+			<input class="w3-input w3-border" type="email" placeholder="Enter Email" id="emailS" required/>
+			<input class="w3-btn-block w3-green w3-section w3-padding" type="submit" value="Signup" id="signup_btn"/>
+			<input class="w3-check w3-margin-top" type="checkbox" checked="checked" required/> For Signup, you must read and agree to our terms and conditions.
+        </div>
+		<div class="w3-container w3-border-top w3-padding-16 w3-light-grey">
+			<button onclick="document.getElementById('id02').style.display='none'" type="button" id='id2' class="w3-btn w3-red">Login</button>
+		</div> 
+    </div> 
+
+	<script>
+		var modal = document.getElementById('id01');
+		window.onclick = function(event) {
+			if (event.target == modal) {
+				modal.style.display = "none";
+			}
+		}
+		var modal = document.getElementById('id02');
+			window.onclick = function(event) {
+			if (event.target == modal) {
+				modal.style.display = "none";
+			}
+		}
+	</script>
+<!------------------------------------------------------------------------------------------------------------------------------------------->
+    <script type="text/javascript" src="/ui/main.js">
+    </script>
 </body>
-</html
+</html>
