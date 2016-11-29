@@ -28,6 +28,9 @@ app.use(session({
 app.get('/', function (req, res) {
   res.sendFile(path.join(__dirname, 'ui', 'index.html'));
 });
+app.get('/Sarvesh', function (req, res) {
+  res.sendFile(path.join(__dirname, 'ui', 'Sarvesh.html'));
+});
 ////////////////////////////////////////////////////////////////////////////////
 function hash(input, salt) {
     var hashed = crypto.pbkdf2Sync(input, salt, 10000, 512, 'sha512');
