@@ -18,9 +18,11 @@ function loadLoggedInUser (username) {
     //var msg = `<h1> Welcome <i>${username}</i> !!!</h1>
     //<a href="/logout">Logout</a>`;
     var msg =`<h1>Welcome `+username+` !!!</h1>`;
-    document.getElementById('myMsg').innerHTML = msg;
-    document.getElementById("login_btn").style.visibility = 'hidden';
-    document.getElementById("logout_btn").style.visibility = 'visible';
+    document.getElementById('log').innerHTML = 
+    `<input class="w3-btn-block w3-green 
+	w3-section w3-padding" type="submit" value="Logout" id="logout_btn"/>`;
+    //document.getElementById("login_btn").style.visibility = 'hidden';
+    //document.getElementById("logout_btn").style.visibility = 'visible';
 }
 ////////////////////////////////////////////////////////////////////////////////
     var login = document.getElementById('login_btn');
@@ -29,8 +31,11 @@ function loadLoggedInUser (username) {
         request.onreadystatechange = function () {
           if (request.readyState === XMLHttpRequest.DONE) {
               if (request.status === 200) {
-                  document.getElementById("login_btn").style.visibility = 'hidden';
-                  document.getElementById("logout_btn").style.visibility = 'visible';
+                document.getElementById('log').innerHTML = 
+                `<input class="w3-btn-block w3-green 
+	w3-section w3-padding" type="submit" value="Logout" id="logout_btn"/>`;
+                  //document.getElementById("login_btn").style.visibility = 'hidden';
+                  //document.getElementById("logout_btn").style.visibility = 'visible';
                   var msg =`<h1>Welcome `+username+` !!!</h1>`;
                   document.getElementById('myMsg').innerHTML = msg;
               } else if (request.status === 403) {
@@ -61,8 +66,11 @@ function loadLoggedInUser (username) {
         request.onreadystatechange = function () {
           if (request.readyState === XMLHttpRequest.DONE) {
               if (request.status === 200) {
-                  document.getElementById("logout_btn").style.visibility = 'hidden';
-                  document.getElementById("login_btn").style.visibility = 'visible';
+                document.getElementById('log').innerHTML = 
+    `<input class="w3-btn-block w3-green 
+	w3-section w3-padding" type="submit" value="Login" id="login_btn"/>`;
+                  //document.getElementById("logout_btn").style.visibility = 'hidden';
+                  //document.getElementById("login_btn").style.visibility = 'visible';
                   var msg =`<h1>Welcome !!!</h1>`;
                   document.getElementById('myMsg').innerHTML = msg;
               } 
