@@ -18,23 +18,11 @@ function loadLoggedInUser (username) {
     //var msg = `<h1> Welcome <i>${username}</i> !!!</h1>
     //<a href="/logout">Logout</a>`;
     var msg =`<h1>Welcome `+username+` !!!</h1>`;
-                document.getElementById('id01').innerHTML = 
-                `
-			<div class="w3-modal-content w3-card-8 w3-animate-zoom" style="max-width:600px">
-			<div class="w3-center"><br>
-				<span onclick="document.getElementById('id01').style.display='none'" class="w3-closebtn w3-hover-red w3-container w3-padding-8 w3-display-topright" title="Close Modal">&times;</span>
-				<!-- <img src=" " alt="Icon" style="width:30%" class="w3-circle w3-margin-top"> -->
-			</div>
-        <div class="w3-container  w3-section">
-			<label><b>Username</b></label>
-			<input class="w3-input w3-border w3-margin-bottom" type="text" placeholder="Enter Username" id="username" required/>
-			<label><b>Password</b></label>
-			<input class="w3-input w3-border" type="password" placeholder="Enter Password" id="password" required/>
+                document.getElementById('log').innerHTML = `
 			<div id="log">
 			<input class="w3-btn-block w3-green w3-section w3-padding" type="submit" value="Logout" id="logout_btn"/>
 			</div>
-			<input class="w3-check w3-margin-top" type="checkbox" checked="checked"/> Remember me
-        </div>`;
+			`;
     //document.getElementById("login_btn").style.visibility = 'hidden';
     //document.getElementById("logout_btn").style.visibility = 'visible';
 }
@@ -45,23 +33,11 @@ function loadLoggedInUser (username) {
         request.onreadystatechange = function () {
           if (request.readyState === XMLHttpRequest.DONE) {
               if (request.status === 200) {
-                document.getElementById('id01').innerHTML = 
-                `
-			<div class="w3-modal-content w3-card-8 w3-animate-zoom" style="max-width:600px">
-			<div class="w3-center"><br>
-				<span onclick="document.getElementById('id01').style.display='none'" class="w3-closebtn w3-hover-red w3-container w3-padding-8 w3-display-topright" title="Close Modal">&times;</span>
-				<!-- <img src=" " alt="Icon" style="width:30%" class="w3-circle w3-margin-top"> -->
-			</div>
-        <div class="w3-container  w3-section">
-			<label><b>Username</b></label>
-			<input class="w3-input w3-border w3-margin-bottom" type="text" placeholder="Enter Username" id="username" required/>
-			<label><b>Password</b></label>
-			<input class="w3-input w3-border" type="password" placeholder="Enter Password" id="password" required/>
-			<div id="log">
+                document.getElementById('log').innerHTML = 
+                `<div id="log">
 			<input class="w3-btn-block w3-green w3-section w3-padding" type="submit" value="Logout" id="logout_btn"/>
 			</div>
-			<input class="w3-check w3-margin-top" type="checkbox" checked="checked"/> Remember me
-        </div>`;
+			`;
                   //document.getElementById("login_btn").style.visibility = 'hidden';
                   //document.getElementById("logout_btn").style.visibility = 'visible';
                   var msg =`<h1>Welcome `+username+` !!!</h1>`;
@@ -94,23 +70,11 @@ function loadLoggedInUser (username) {
         request.onreadystatechange = function () {
           if (request.readyState === XMLHttpRequest.DONE) {
               if (request.status === 200) {
-                document.getElementById('id01').innerHTML = 
-                `
-			<div class="w3-modal-content w3-card-8 w3-animate-zoom" style="max-width:600px">
-			<div class="w3-center"><br>
-				<span onclick="document.getElementById('id01').style.display='none'" class="w3-closebtn w3-hover-red w3-container w3-padding-8 w3-display-topright" title="Close Modal">&times;</span>
-				<!-- <img src=" " alt="Icon" style="width:30%" class="w3-circle w3-margin-top"> -->
-			</div>
-        <div class="w3-container  w3-section">
-			<label><b>Username</b></label>
-			<input class="w3-input w3-border w3-margin-bottom" type="text" placeholder="Enter Username" id="username" required/>
-			<label><b>Password</b></label>
-			<input class="w3-input w3-border" type="password" placeholder="Enter Password" id="password" required/>
+                document.getElementById('log').innerHTML = 
+            `
 			<div id="log">
 			<input class="w3-btn-block w3-green w3-section w3-padding" type="submit" value="Login" id="login_btn"/>
-			</div>
-			<input class="w3-check w3-margin-top" type="checkbox" checked="checked"/> Remember me
-        </div>`;
+			</div>`;
                   //document.getElementById("logout_btn").style.visibility = 'hidden';
                   //document.getElementById("login_btn").style.visibility = 'visible';
                   var msg =`<h1>Welcome !!!</h1>`;
