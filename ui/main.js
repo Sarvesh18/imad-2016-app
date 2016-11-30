@@ -31,7 +31,7 @@ function loadLoggedInUser (username) {
         request.onreadystatechange = function () {
           if (request.readyState === XMLHttpRequest.DONE) {
               if (request.status === 200) {
-                document.getElementById('log').innerHTML = 
+                document.getElementById('id01').innerHTML = 
                 `<input class="w3-btn-block w3-green 
 	w3-section w3-padding" type="submit" value="Logout" id="logout_btn"/>`;
                   //document.getElementById("login_btn").style.visibility = 'hidden';
